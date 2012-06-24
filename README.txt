@@ -3,6 +3,15 @@ Calinou's Minetest Mods
 
 Calinou's Mods for Minetest [http://minetest.net], a free and opensource Minecraft-like game.
 
+This Git repository is mostly made for servers; it allows easy updating.
+
+
+
+Misc stuff
+=====================
+
+All mods are under WTFPL license.
+
 Mods' forum threads:
 More Blocks: http://minetest.net/forum/viewtopic.php?id=509
 More Ores: http://minetest.net/forum/viewtopic.php?id=549
