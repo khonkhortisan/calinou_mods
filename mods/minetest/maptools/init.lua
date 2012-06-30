@@ -389,7 +389,6 @@ minetest.register_node("maptools:ladder", {
 		--wall_side = = <default>
 	},
 	groups = {unbreakable=1},
-	legacy_wallmounted = true,
 	sounds = default.node_sound_wood_defaults(),
 })
 

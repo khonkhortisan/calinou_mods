@@ -106,7 +106,6 @@ minetest.register_node( 'doorsplus:door_wood_right_a_c', {
 	walkable            = true,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 
@@ -120,7 +119,6 @@ minetest.register_node( 'doorsplus:door_wood_right_b_c', {
 	walkable            = true,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 
@@ -134,7 +132,6 @@ minetest.register_node( 'doorsplus:door_wood_right_a_o', {
 	walkable            = false,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 
@@ -148,7 +145,6 @@ minetest.register_node( 'doorsplus:door_wood_right_b_o', {
 	walkable            = false,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 
@@ -162,7 +158,6 @@ minetest.register_node( 'doorsplus:door_wood_left_a_c', {
 	walkable            = true,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_left',
 })
 
@@ -176,7 +171,6 @@ minetest.register_node( 'doorsplus:door_wood_left_b_c', {
 	walkable            = true,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_left',
 })
 
@@ -190,7 +184,6 @@ minetest.register_node( 'doorsplus:door_wood_left_a_o', {
 	walkable            = false,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_left',
 })
 
@@ -204,7 +197,6 @@ minetest.register_node( 'doorsplus:door_wood_left_b_o', {
 	walkable            = false,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_left',
 })
 
@@ -218,7 +210,6 @@ minetest.register_node( 'doorsplus:door_wood_a_c', {
 	walkable            = true,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 
@@ -232,7 +223,6 @@ minetest.register_node( 'doorsplus:door_wood_b_c', {
 	walkable            = true,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 
@@ -246,7 +236,6 @@ minetest.register_node( 'doorsplus:door_wood_a_o', {
 	walkable            = false,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 
@@ -260,7 +249,6 @@ minetest.register_node( 'doorsplus:door_wood_b_o', {
 	walkable            = false,
 	selection_box       = { type = "wallmounted", },
 	groups              = { choppy=2, dig_immediate=2 },
-	legacy_wallmounted  = true,
 	drop                = 'doorsplus:door_wood_right',
 })
 

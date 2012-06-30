@@ -286,15 +286,33 @@ minetest.register_craft({
 	output = 'node "moreblocks:rope" 1',
 	recipe = {
 		{'node "leaves"'},
+		{'node "leaves"'},
+		{'node "leaves"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "moreblocks:rope" 1',
+	recipe = {
+		{'node "leaves"'},
 		{'node "junglegrass"'},
 		{'node "leaves"'},
 	}
 })
 
 minetest.register_craft({
+	output = 'node "moreblocks:rope" 1',
+	recipe = {
+		{'node "junglegrass"'},
+		{'node "junglegrass"'},
+		{'node "junglegrass"'},
+	}
+})
+
+minetest.register_craft({
 	output = 'craft "steel_ingot" 9',
 	recipe = {
-		{'node "steel_block"'},
+		{'node "default:steelblock"'},
 	}
 })
 
@@ -587,7 +605,6 @@ minetest.register_node("moreblocks:rope", {
 	},
 	groups = {snappy=3,flammable=2},
 	sounds = default.node_sound_leaves_defaults(),
-	legacy_wallmounted = true,
 })
 
 -- Items

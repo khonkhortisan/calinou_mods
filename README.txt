@@ -12,7 +12,7 @@ To install, just clone this repository somewhere, then copy the "mods" folder in
 Misc stuff
 =====================
 
-All mods are under WTFPL license.
+All mods but More Ores are under WTFPL license. More Ores is in GPLv3.
 
 Mods' forum threads:
 More Blocks: http://minetest.net/forum/viewtopic.php?id=509
