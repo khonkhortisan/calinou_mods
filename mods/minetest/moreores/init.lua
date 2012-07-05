@@ -2,8 +2,8 @@
 ****
 More Ores
 by Calinou
-with the help of MarkTraceur
-Version 12.06.30
+Rewritten by MarkTraceur
+Version 2012-06-24
 Licensed under GPLv3 or later, see http://www.gnu.org/licenses/gpl-3.0.html
 ****
 --]]
@@ -12,17 +12,12 @@ Licensed under GPLv3 or later, see http://www.gnu.org/licenses/gpl-3.0.html
 
 local default_stone_sounds = default.node_sound_stone_defaults()
 
-local function capitalize(origstr)
-    local firstlet = string.upper(string.sub(origstr, 1, 1))
-	return firstlet..string.sub(origstr, 2)
-end
-
 local stick = 'default:stick'
 local recipes = {
 	sword = {{'m'}, {'m'}, {stick}},
 	shovel = {{'m'}, {stick}, {stick}},
 	axe = {{'m', 'm'}, {'m', stick}, {'' , stick}},
-	pickaxe = {{'m', 'm', 'm'}, {'', stick, ''}, {'', stick, ''}}
+	pick = {{'m', 'm', 'm'}, {'', stick, ''}, {'', stick, ''}}
 }
 
 local function get_tool_recipe(craftitem, toolname)
@@ -43,7 +38,8 @@ local function get_tool_recipe(craftitem, toolname)
 end
 
 local function add_ore(modname, mineral_name, oredef)
-    local upcase_name = capitalize(mineral_name)
+    local firstlet = string.upper(string.sub(mineral_name, 1, 1))
+    local upcase_name = firstlet..string.sub(mineral_name, 2)
     local img_base = modname..'_'..mineral_name
     local toolimg_base = modname..'_tool_'..mineral_name
 	local tool_base = modname..':'
@@ -131,7 +127,8 @@ local function add_ore(modname, mineral_name, oredef)
 	end
 
 	for toolname, tooldef in pairs(oredef.tools) do
-		local upcase_toolname = capitalize(toolname)
+		local tflet = string.upper(string.sub(toolname, 0, 1))
+		local upcase_toolname = tflet..string.sub(toolname, 1)
 		local tdef = {
 			description = upcase_name..' '..upcase_toolname,
 			inventory_image = toolimg_base..toolname..'.png',
@@ -163,7 +160,7 @@ local oredefs = {
 	gold = {
 		makes = {ore=true, block=true, lump=true, ingot=true, chest=true},
 		tools = {
-			pickaxe = {
+			pick = {
 				cracky={times={[1]=2.00, [2]=0.50, [3]=0.30}, uses=70, maxlevel=1}
 			},
 			shovel = {
@@ -184,7 +181,7 @@ local oredefs = {
 	silver = {
 		makes = {ore=true, block=true, lump=true, ingot=true, chest=true},
 		tools = {
-			pickaxe = {
+			pick = {
 				cracky={times={[1]=2.60, [2]=1.00, [3]=0.60}, uses=100, maxlevel=1}
 			},
 			shovel = {
@@ -213,7 +210,7 @@ local oredefs = {
 	bronze = {
 		makes = {ore=false, block=true, lump=false, ingot=true, chest=true},
 		tools = {
-			pickaxe = {
+			pick = {
 				cracky={times={[1]=3.00, [2]=1.20, [3]=0.80}, uses=160, maxlevel=1}
 			},
 			shovel = {
@@ -234,7 +231,7 @@ local oredefs = {
 	mithril = {
 		makes = {ore=true, block=true, lump=true, ingot=true, chest=false},
 		tools = {
-			pickaxe = {
+			pick = {
 				cracky={times={[1]=2.25, [2]=0.55, [3]=0.35}, uses=200, maxlevel=1}
 			},
 			shovel = {
@@ -256,7 +253,6 @@ local oredefs = {
 
 for orename,def in pairs(oredefs) do
 	add_ore(modname, orename, def)
-	minetest.register_alias(modname..':pick_'..orename, modname..':pickaxe_'..orename)
 end
 
 -- Copper rail (special item!)
@@ -357,9 +353,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		current_seed = current_seed + 1
 		return current_seed
 	end
-	generate_ore("moreores:mineral_copper", "default:stone", minp, maxp, get_next_seed(), 1/11/11/11, 8, -31000, 64)
-	generate_ore("moreores:mineral_tin", "default:stone", minp, maxp, get_next_seed(), 1/8/8/8, 2, -31000, 8)
-	generate_ore("moreores:mineral_silver", "default:stone", minp, maxp, get_next_seed(), 1/10/10/10, 5, -31000, 2)
-	generate_ore("moreores:mineral_gold", "default:stone", minp, maxp, get_next_seed(), 1/12/12/12, 5, -31000, -64)
-	generate_ore("moreores:mineral_mithril", "default:stone", minp, maxp, get_next_seed(), 1/6/6/6, 1, -31000, -512)
+	generate_ore("moreores:mineral_copper", "default:stone", minp, maxp, get_next_seed(), 1/12/12/12, 8, -31000, 64)
+	generate_ore("moreores:mineral_tin", "default:stone", minp, maxp, get_next_seed(), 1/9/9/9, 2, -31000, 8)
+	generate_ore("moreores:mineral_silver", "default:stone", minp, maxp, get_next_seed(), 1/11/11/11, 5, -31000, 2)
+	generate_ore("moreores:mineral_gold", "default:stone", minp, maxp, get_next_seed(), 1/13/13/13, 5, -31000, -64)
+	generate_ore("moreores:mineral_mithril", "default:stone", minp, maxp, get_next_seed(), 1/7/7/7, 1, -31000, -512)
 end)

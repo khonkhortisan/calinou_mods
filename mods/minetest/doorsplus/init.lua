@@ -2,7 +2,7 @@
 ****
 Doors+
 by Calinou
-Version 12.06.18
+Version 12.06.29
 ****
 --]]
 
@@ -68,6 +68,13 @@ minetest.register_craft( {
 	output              = 'doorsplus:door_wood_left',
 	recipe = {
 		{ 'doorsplus:door_wood_right' },
+	},
+})
+
+minetest.register_craft( {
+	output              = 'doorsplus:door_wood_left',
+	recipe = {
+		{ 'doors:door_wood' },
 	},
 })
 
