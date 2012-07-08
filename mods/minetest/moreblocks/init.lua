@@ -2,11 +2,176 @@
 ****
 More Blocks
 by Calinou
-Version 12.05.28
+Version 12.07.08
 ****
 --]]
 
+-- Aliases (some of them are about the default mod, some about moreblocks)
+
+-- Additional default aliases
+
+minetest.register_alias("woodpick", "default:pick_wood")
+minetest.register_alias("woodenpick", "default:pick_wood")
+minetest.register_alias("stonepick", "default:pick_stone")
+minetest.register_alias("steelpick", "default:pick_steel")
+minetest.register_alias("ironpick", "default:pick_steel")
+minetest.register_alias("mesepick", "default:pick_mese")
+
+minetest.register_alias("woodaxe", "default:axe_wood")
+minetest.register_alias("woodenaxe", "default:axe_wood")
+minetest.register_alias("stoneaxe", "default:axe_stone")
+minetest.register_alias("steelaxe", "default:axe_steel")
+minetest.register_alias("ironaxe", "default:axe_steel")
+
+minetest.register_alias("woodshovel", "default:shovel_wood")
+minetest.register_alias("woodenshovel", "default:shovel_wood")
+minetest.register_alias("stoneshovel", "default:shovel_stone")
+minetest.register_alias("steelshovel", "default:shovel_steel")
+minetest.register_alias("ironshovel", "default:shovel_steel")
+
+minetest.register_alias("woodsword", "default:sword_wood")
+minetest.register_alias("woodensword", "default:sword_wood")
+minetest.register_alias("stonesword", "default:sword_stone")
+minetest.register_alias("steelsword", "default:sword_steel")
+minetest.register_alias("ironsword", "default:sword_steel")
+
+minetest.register_alias("grass", "default:dirt_with_grass")
+minetest.register_alias("grassblock", "default:dirt_with_grass")
+minetest.register_alias("grass_block", "default:dirt_with_grass")
+
+minetest.register_alias("stick", "default:stick")
+minetest.register_alias("sign", "default:sign_wall")
+minetest.register_alias("fence", "default:fence_wood")
+minetest.register_alias("coal", "default:coal_lump")
+minetest.register_alias("iron", "default:iron_lump")
+minetest.register_alias("clay", "default:clay_lump")
+minetest.register_alias("steel", "default:steel_ingot")
+minetest.register_alias("steel_block", "default:steelblock")
+
+-- More Blocks aliases
+
+minetest.register_alias("stonebrick", "moreblocks:stonebrick")
+minetest.register_alias("stonebricks", "moreblocks:stonebrick")
+minetest.register_alias("stone_brick", "moreblocks:stonebrick")
+minetest.register_alias("stone_bricks", "moreblocks:stonebrick")
+minetest.register_alias("stonesquare", "moreblocks:stonesquare")
+minetest.register_alias("stonesquares", "moreblocks:stonesquare")
+minetest.register_alias("stone_square", "moreblocks:stonesquare")
+minetest.register_alias("stone_squares", "moreblocks:stonesquare")
+minetest.register_alias("coalstone", "moreblocks:coalstone")
+minetest.register_alias("ironstone", "moreblocks:ironstone")
+minetest.register_alias("coalglass", "moreblocks:coalglass")
+minetest.register_alias("ironglass", "moreblocks:ironglass")
+minetest.register_alias("glowglass", "moreblocks:glowglass")
+minetest.register_alias("superglowglass", "moreblocks:superglowglass")
+minetest.register_alias("plankstone", "moreblocks:plankstone")
+minetest.register_alias("cactusbrick", "moreblocks:cactusbrick")
+minetest.register_alias("cactuschecker", "moreblocks:cactuschecker")
+minetest.register_alias("coalchecker", "moreblocks:coalchecker")
+minetest.register_alias("ironchecker", "moreblocks:ironchecker")
+
+-- Redefinitions of some default crafting recipes
+
+minetest.register_craft({
+	output = 'default:sign_wall 3',
+	recipe = {
+		{'default:wood', 'default:wood', 'default:wood'},
+		{'default:wood', 'default:wood', 'default:wood'},
+		{'', 'default:stick', ''},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:ladder 3',
+	recipe = {
+		{'default:stick', '', 'default:stick'},
+		{'default:stick', 'default:stick', 'default:stick'},
+		{'default:stick', '', 'default:stick'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:paper 3',
+	recipe = {
+		{'default:papyrus', 'default:papyrus', 'default:papyrus'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:rail 16',
+	recipe = {
+		{'default:steel_ingot', '', 'default:steel_ingot'},
+		{'default:steel_ingot', 'default:stick', 'default:steel_ingot'},
+		{'default:steel_ingot', '', 'default:steel_ingot'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:axe_wood',
+	recipe = {
+		{'default:wood', 'default:wood'},
+		{'default:stick', 'default:wood	'},
+		{'default:stick', ''},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:axe_stone',
+	recipe = {
+		{'default:cobble', 'default:cobble'},
+		{'default:stick', 'default:cobble'},
+		{'default:stick', ''},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:axe_steel',
+	recipe = {
+		{'default:steel_ingot', 'default:steel_ingot'},
+		{'default:stick', 'default:steel_ingot'},
+		{'default:stick', ''},
+	}
+})
+
+-- Tool repair buff (15% bonus instead of 2%)
+
+minetest.register_craft({
+	type = "toolrepair",
+	additional_wear = -0.15,
+})
+
 -- Crafting
+
+minetest.register_craft({
+	output = 'default:stick 1',
+	recipe = {
+		{'node "default:dry_shrub"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:sandstone 1',
+	recipe = {
+		{'default:desert_sand', 'default:desert_sand'},
+		{'default:desert_sand', 'default:desert_sand'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:dirt_with_grass 1',
+	recipe = {
+		{'node "default:junglegrass"'},
+		{'node "default:dirt"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:dirt_with_grass 1',
+	recipe = {
+		{'node "default:mese"'},
+		{'node "default:dirt"'},
+	}
+})
 
 minetest.register_craft({
 	output = 'node "moreblocks:junglewood" 4',
