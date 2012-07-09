@@ -2,7 +2,7 @@
 ****
 Map Tools
 by Calinou
-Version 12.05.28
+Version 12.06.29
 Licensed under WTFPL.
 ****
 --]]
