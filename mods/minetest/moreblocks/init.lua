@@ -73,7 +73,7 @@ minetest.register_alias("ironchecker", "moreblocks:ironchecker")
 -- Redefinitions of some default crafting recipes
 
 minetest.register_craft({
-	output = 'default:sign_wall 3',
+	output = 'default:sign_wall 4',
 	recipe = {
 		{'default:wood', 'default:wood', 'default:wood'},
 		{'default:wood', 'default:wood', 'default:wood'},
@@ -170,6 +170,22 @@ minetest.register_craft({
 	recipe = {
 		{'node "default:mese"'},
 		{'node "default:dirt"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:mossycobble 1',
+	recipe = {
+		{'node "default:junglegrass"'},
+		{'node "default:cobble"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'default:mossycobble 1',
+	recipe = {
+		{'node "default:mese"'},
+		{'node "default:cobble"'},
 	}
 })
 
