@@ -3,6 +3,7 @@
 More Blocks
 by Calinou
 Version 12.07.08
+Licensed under WTFPL.
 ****
 --]]
 

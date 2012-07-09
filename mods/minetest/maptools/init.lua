@@ -3,6 +3,7 @@
 Map Tools
 by Calinou
 Version 12.05.28
+Licensed under WTFPL.
 ****
 --]]
 

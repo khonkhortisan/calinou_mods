@@ -3,6 +3,7 @@
 Stairs+
 by Calinou
 Version 12.06.18
+Licensed under WTFPL.
 ****
 --]]
 

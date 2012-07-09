@@ -2,9 +2,9 @@
 ****
 More Ores
 by Calinou
-Rewritten by MarkTraceur
-Version 2012-06-24
-Licensed under GPLv3 or later, see http://www.gnu.org/licenses/gpl-3.0.html
+with the help of MarkTraceur
+Version 12.06.27
+Licensed under GPLv3 or later, see http://www.gnu.org/licenses/gpl-3.0.html.
 ****
 --]]
 
@@ -255,10 +255,10 @@ for orename,def in pairs(oredefs) do
 	add_ore(modname, orename, def)
 end
 
--- Copper rail (special item!)
+-- Copper rail (special item)
 
 minetest.register_craft({
-	output = 'moreores:copper_rail 15',
+	output = 'moreores:copper_rail 16',
 	recipe = {
 		{'moreores:copper_ingot', '', 'moreores:copper_ingot'},
 		{'moreores:copper_ingot', 'default:stick', 'moreores:copper_ingot'},
@@ -284,7 +284,7 @@ minetest.register_craft( {
 	}
 })
 
--- unique items
+-- Unique items
 
 minetest.register_node('moreores:copper_rail', {
 	description = 'Copper Rail',
@@ -297,7 +297,7 @@ minetest.register_node('moreores:copper_rail', {
 	walkable = false,
 	selection_box = {
 		type = 'fixed',
-		--fixed = <default>
+		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {bendy=2,snappy=1,dig_immediate=2}
 })
