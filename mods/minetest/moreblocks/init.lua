@@ -722,7 +722,7 @@ minetest.register_node("moreblocks:horizontaltree", {
 	tile_images = {"default_tree.png", "default_tree.png", "moreblocks_horizontaltree.png",
 		"moreblocks_horizontaltree.png", "default_tree_top.png", "default_tree_top.png"},
 	paramtype2 = "facedir",
-	groups = {tree=1,snappy=2,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	groups = {tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 	furnace_burntime = 30,
 })
@@ -732,7 +732,7 @@ minetest.register_node("moreblocks:horizontaljungletree", {
 	tile_images = {"default_jungletree.png", "default_jungletree.png", "moreblocks_horizontaljungletree.png",
 		"moreblocks_horizontaljungletree.png", "default_jungletree_top.png", "default_jungletree_top.png"},
 	paramtype2 = "facedir",
-	groups = {tree=1,snappy=2,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	groups = {tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 	furnace_burntime = 30,
 })
@@ -740,7 +740,7 @@ minetest.register_node("moreblocks:horizontaljungletree", {
 minetest.register_node("moreblocks:allfacestree", {
 	description = "All-faces Tree",
 	tile_images = {"default_tree_top.png"},
-	groups = {tree=1,snappy=2,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	groups = {tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 	furnace_burntime = 30,
 })
