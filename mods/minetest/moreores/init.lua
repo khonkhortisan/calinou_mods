@@ -70,6 +70,7 @@ local function add_ore(modname, mineral_name, oredef)
 			groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2},
 			sounds = default_stone_sounds
 		})
+		minetest.register_alias(mineral_name..'_block', blockitem)
 		local ingotrow = {ingot, ingot, ingot}
 		local nodeblockitem = 'node "'..blockitem..'"'
 		minetest.register_craft( {
@@ -90,6 +91,7 @@ local function add_ore(modname, mineral_name, oredef)
 			inventory_image = img_base..'_lump.png',
 			on_place_on_ground = minetest.craftitem_place_item
 		})
+		minetest.register_alias(mineral_name.."_lump", lumpitem)
 		if oredef.makes.ingot then
 			minetest.register_craft({
 				type = 'cooking',
@@ -105,6 +107,7 @@ local function add_ore(modname, mineral_name, oredef)
 			inventory_image = img_base..'_ingot.png',
 			on_place_on_ground = minetest.craftitem_place_item
 		})
+		minetest.register_alias(mineral_name.."_ingot", ingot)
 		if oredef.makes.chest then
 			minetest.register_craft( {
 				output = 'node "default:chest_locked" 1',
@@ -143,6 +146,7 @@ local function add_ore(modname, mineral_name, oredef)
 		end
 		local fulltoolname = tool_base..toolname..tool_post
 		minetest.register_tool(fulltoolname, tdef)
+		minetest.register_alias(toolname..tool_post, fulltoolname)
 		if oredef.makes.ingot then
 			minetest.register_craft({
 				output = 'craft "'..fulltoolname..'" 1',
@@ -269,18 +273,13 @@ minetest.register_craft({
 -- Bronze has some special cases (because it's made from copper + tin)
 
 minetest.register_craft( {
-	output = 'craft "moreores:bronze_ingot"',
+	type = 'shapeless',
+	output = 'moreores:bronze_ingot 4',
 	recipe = {
-		{ 'craft "moreores:tin_ingot"'},
-		{ 'craft "moreores:copper_ingot"'}
-	}
-})
-
-minetest.register_craft( {
-	output = 'craft "moreores:bronze_ingot"',
-	recipe = {
-		{ 'craft "moreores:copper_ingot"'},
-		{ 'craft "moreores:tin_ingot"'}
+		'moreores:tin_ingot',
+		'moreores:copper_ingot',
+		'moreores:copper_ingot',
+		'moreores:copper_ingot'
 	}
 })
 
