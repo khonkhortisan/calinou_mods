@@ -2,7 +2,7 @@
 ****
 Map Tools
 by Calinou
-Version 12.07.26
+Version 12.07.31
 Licensed under WTFPL.
 ****
 --]]
@@ -301,6 +301,7 @@ minetest.register_node("maptools:lightblock", {
 	drawtype = "airlike",
 	walkable = false,
 	pointable = false,
+	buildable_to = true,
 	is_ground_content = true,
 	groups = {unbreakable=1},
 })
@@ -312,6 +313,7 @@ minetest.register_node("maptools:lightbulb", {
 	pointable = false,
 	light_source = LIGHT_MAX - 1,
 	paramtype = "light",
+	buildable_to = true,
 	sunlight_propagates = true,
 	is_ground_content = true,
 	groups = {unbreakable=1},
@@ -345,6 +347,7 @@ minetest.register_node("maptools:climb", {
 	climbable = true,
 	pointable = false,
 	is_ground_content = true,
+	buildable_to = true,
 	paramtype = "light",
 	sunlight_propagates = true,
 	groups = {unbreakable=1},
