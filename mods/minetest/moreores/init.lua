@@ -2,8 +2,8 @@
 ****
 More Ores
 by Calinou
-with the help of MarkTraceur and Kotolegokot
-Version 12.07.26
+with the help of MarkTraceur, GloopMaster and Kotolegokot
+Version 12.08.17
 Licensed under GPLv3 or later, see: http://www.gnu.org/licenses/gpl-3.0.html
 ****
 --]]
@@ -131,7 +131,7 @@ local function add_ore(modname, mineral_name, oredef)
 
 	for toolname, tooldef in pairs(oredef.tools) do
 		local tflet = string.upper(string.sub(toolname, 0, 1))
-		local upcase_toolname = tflet..string.sub(toolname, 1)
+		local upcase_toolname = tflet..string.sub(toolname, 2)
 		local tdef = {
 			description = upcase_name..' '..upcase_toolname,
 			inventory_image = toolimg_base..toolname..'.png',
@@ -144,6 +144,11 @@ local function add_ore(modname, mineral_name, oredef)
 		if toolname == 'sword' then
 			tdef.full_punch_interval = oredef.punchint
 		end
+
+		if toolname == 'pick' then
+			tdef.description = upcase_name.." Pickaxe"
+		end
+
 		local fulltoolname = tool_base..toolname..tool_post
 		minetest.register_tool(fulltoolname, tdef)
 		minetest.register_alias(toolname..tool_post, fulltoolname)
@@ -274,12 +279,11 @@ minetest.register_craft({
 
 minetest.register_craft( {
 	type = 'shapeless',
-	output = 'moreores:bronze_ingot 4',
+	output = 'moreores:bronze_ingot 3',
 	recipe = {
 		'moreores:tin_ingot',
 		'moreores:copper_ingot',
 		'moreores:copper_ingot',
-		'moreores:copper_ingot'
 	}
 })
 
