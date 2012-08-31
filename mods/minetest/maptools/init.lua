@@ -2,7 +2,7 @@
 ****
 Map Tools
 by Calinou
-Version 12.07.31
+Version 12.08.31
 Licensed under WTFPL.
 ****
 --]]
@@ -132,6 +132,16 @@ minetest.register_craft({
 	type = "fuel",
 	recipe = "maptools:infinitefuel",
 	burntime = 1000000000,
+})
+
+-- Redefine cloud so that admin pickaxe can mine it
+
+minetest.register_node(":default:cloud", {
+	description = "Cloud",
+	tiles = {"default_cloud.png"},
+	is_ground_content = true,
+	groups = {unbreakable=1},
+	sounds = default.node_sound_defaults(),
 })
 
 -- Blocks
