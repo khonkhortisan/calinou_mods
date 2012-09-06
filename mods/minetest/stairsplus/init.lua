@@ -2,7 +2,7 @@
 ****
 Stairss+
 by Calinou
-Version 12.08.21
+Version 12.09.06
 Licensed under WTFPL.
 ****
 --]]
@@ -10,11 +10,12 @@ Licensed under WTFPL.
 stairsplus = {}
 
 -- Node will be called stairsplus:stair_<subname>
-function stairsplus.register_stair(subname, recipeitem, groups, images, description)
+function stairsplus.register_stair(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("stairsplus:stair_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -51,6 +52,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:stair_" .. drop .. "_inverted",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -69,6 +71,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:stair_" .. drop .. "_wall",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -160,29 +163,12 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 end
 
 -- Node will be called stairsplus:slab_<subname>
-function stairsplus.register_slab(subname, recipeitem, groups, images, description)
+function stairsplus.register_slab(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("stairsplus:slab_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		paramtype = "light",
-		is_ground_content = true,
-		groups = groups,
-		node_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
-		},
-		sounds = default.node_sound_stone_defaults(),
-	})
-	
-	minetest.register_node(":stairsplus:slab_" .. subname, {
-		description = description,
-		drawtype = "nodebox",
-		tiles = images,
+		drop = "stairsplus:slab_" .. drop,
 		paramtype = "light",
 		is_ground_content = true,
 		groups = groups,
@@ -201,6 +187,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:slab_" .. drop .. "_inverted",
 		paramtype = "light",
 		is_ground_content = true,
 		groups = groups,
@@ -219,6 +206,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:slab_" .. drop .. "_wall",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -266,11 +254,12 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 end
 
 -- Node will be called stairsplus:panel_<subname>
-function stairsplus.register_panel(subname, recipeitem, groups, images, description)
+function stairsplus.register_panel(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("stairsplus:panel_" .. subname .. "_bottom", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -290,6 +279,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:panel_" .. drop .. "_top",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -309,6 +299,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "stairsplus:panel_" .. drop .. "_vertical",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -355,10 +346,10 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 end
 
 -- Nodes will be called stairsplus:{stair,slab}_<subname>
-function stairsplus.register_stair_and_slab_and_panel(subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel)
-	stairsplus.register_stair(subname, recipeitem, groups, images, desc_stair)
-	stairsplus.register_slab(subname, recipeitem, groups, images, desc_slab)
-	stairsplus.register_panel(subname, recipeitem, groups, images, desc_panel)
+function stairsplus.register_stair_and_slab_and_panel(subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, drop)
+	stairsplus.register_stair(subname, recipeitem, groups, images, desc_stair, drop)
+	stairsplus.register_slab(subname, recipeitem, groups, images, desc_slab, drop)
+	stairsplus.register_panel(subname, recipeitem, groups, images, desc_panel, drop)
 end
 
 stairsplus.register_stair_and_slab_and_panel("wood", "default:wood",
@@ -366,46 +357,53 @@ stairsplus.register_stair_and_slab_and_panel("wood", "default:wood",
 		{"default_wood.png"},
 		"Wooden Stairs",
 		"Wooden Slab",
-		"Wooden Panel")
+		"Wooden Panel",
+		"wood")
 
 stairsplus.register_stair_and_slab_and_panel("stone", "default:stone",
 		{cracky=3},
 		{"default_stone.png"},
 		"Stone Stairs",
 		"Stone Slab",
-		"Stone Panel")
+		"Stone Panel",
+		"cobble")
 
 stairsplus.register_stair_and_slab_and_panel("cobble", "default:cobble",
 		{cracky=3},
 		{"default_cobble.png"},
 		"Cobblestone Stairs",
 		"Cobblestone Slab",
-		"Cobblestone Panel")
+		"Cobblestone Panel",
+		"cobble")
 		
 stairsplus.register_stair_and_slab_and_panel("mossycobble", "default:mossycobble",
 		{cracky=3},
 		{"default_mossycobble.png"},
 		"Mossy Cobblestone Stairs",
 		"Mossy Cobblestone Slab",
-		"Mossy Cobblestone Panel")
+		"Mossy Cobblestone Panel",
+		"mossycobble")
 
 stairsplus.register_stair_and_slab_and_panel("brick", "default:brick",
 		{cracky=3},
 		{"default_brick.png"},
 		"Brick Stairs",
 		"Brick Slab",
-		"Brick Panel")
+		"Brick Panel",
+		"brick")
 
 stairsplus.register_stair_and_slab_and_panel("sandstone", "default:sandstone",
 		{crumbly=2,cracky=2},
 		{"default_sandstone.png"},
 		"Sandstone Stairs",
 		"Sandstone Slab",
-		"Sandstone Panel")
+		"Sandstone Panel",
+		"sandstone")
 		
 stairsplus.register_stair_and_slab_and_panel("steelblock", "default:steelblock",
 		{snappy=1,bendy=2,cracky=1,melty=2,level=2},
 		{"default_steel_block.png"},
 		"Steel Block Stairs",
 		"Steel Block Slab",
-		"Steel Block Panel")
+		"Steel Block Panel",
+		"steelblock")
