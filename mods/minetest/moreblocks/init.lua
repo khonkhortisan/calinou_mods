@@ -2,7 +2,7 @@
 ****
 More Blocks
 by Calinou
-Version 12.08.03
+Version 12.09.10
 Licensed under WTFPL.
 ****
 --]]
@@ -825,16 +825,16 @@ minetest.register_craftitem("moreblocks:junglestick", {
 	inventory_image = "moreblocks_junglestick.png",
 })
 
--- Slabs/Stairss/Panels
+-- Stairs/Slabs/Panels/Microblocks
 
--- Code imported from Stairss+ mod. ;)
+-- Code imported from the Stairs+ mod. ;)
 
 
 moreblocks = {}
 
 -- Node will be called moreblocks:stair_<subname>
-function moreblocks.register_stair(subname, recipeitem, groups, images, description)
-	minetest.register_node("moreblocks:stair_" .. subname, {
+function moreblocks.register_stair(subname, recipeitem, groups, images, description, drop)
+		minetest.register_node("moreblocks:stair_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -849,10 +849,17 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 				{-0.5, 0, 0, 0.5, 0.5, 0.5},
 			},
 		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, 0, 0.5, 0.5, 0.5},
+			},
+		},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
-		minetest.register_node("moreblocks:stair_" .. subname .. "_inverted", {
+		minetest.register_node(":stairs:stair_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -861,6 +868,39 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, 0, 0.5, 0.5, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, 0, 0.5, 0.5, 0.5},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+		minetest.register_node("moreblocks:stair_" .. subname .. "_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:stair_" .. drop,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+			},
+		},
+		selection_box = {
 			type = "fixed",
 			fixed = {
 				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
@@ -874,6 +914,7 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "moreblocks:stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -885,11 +926,178 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 				{-0.5, -0.5, -0.5, 0, 0.5, 0},
 			},
 		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, 0, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0.5, 0},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_wall_half", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:stair_" .. drop .. "_wall_half",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0, 0},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0, 0},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_wall_half_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:stair_" .. drop .. "_wall_half",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, 0, 0.5, 0.5, 0.5},
+				{-0.5, 0, -0.5, 0, 0.5, 0},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, 0, 0.5, 0.5, 0.5},
+				{-0.5, 0, -0.5, 0, 0.5, 0},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_inner", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:stair_" .. drop .. "_inner",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, 0, 0.5, 0.5, 0.5},
+				{-0.5, 0, -0.5, 0, 0.5, 0},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, 0, 0.5, 0.5, 0.5},
+				{-0.5, 0, -0.5, 0, 0.5, 0},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_outer", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:stair_" .. drop .. "_outer",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, 0, 0, 0.5, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+				{-0.5, 0, 0, 0, 0.5, 0.5},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_inner_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:stair_" .. drop .. "_inner",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0, 0},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0, 0},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_outer_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:stair_" .. drop .. "_outer",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0, 0, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0, 0, 0.5},
+			},
+		},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. ' 8',
+		output = "moreblocks:stair_" .. subname .. " 8",
 		recipe = {
 			{recipeitem, "", ""},
 			{recipeitem, recipeitem, ""},
@@ -898,7 +1106,7 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. ' 8',
+		output = "moreblocks:stair_" .. subname .. " 8",
 		recipe = {
 			{"", "", recipeitem},
 			{"", recipeitem, recipeitem},
@@ -907,7 +1115,7 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. '_inverted' .. ' 8',
+		output = "moreblocks:stair_" .. subname .. "_wall 8",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 			{recipeitem, recipeitem, ""},
@@ -916,7 +1124,7 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. '_inverted' .. ' 8',
+		output = "moreblocks:stair_" .. subname .. "_wall 8",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 			{"", recipeitem, recipeitem},
@@ -925,51 +1133,121 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. '_inverted' .. ' 1',
+		output = "moreblocks:stair_" .. subname .. "_wall 2",
 		recipe = {
-			{'moreblocks:stair_' .. subname},
+			{"moreblocks:stair_" .. subname, "moreblocks:stair_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. '_inverted' .. ' 1',
+		output = "moreblocks:stair_" .. subname .. "_wall 2",
 		recipe = {
-			{'stairs:stair_' .. subname},
+			{"moreblocks:stair_" .. subname .. "_inverted", "moreblocks:stair_" .. subname .. "_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. ' 1',
+		output = "moreblocks:stair_" .. subname .. " 2",
 		recipe = {
-			{'moreblocks:stair_' .. subname .. '_inverted'},
+			{"moreblocks:stair_" .. subname .. "_wall"},
+			{"moreblocks:stair_" .. subname .. "_wall"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. '_wall' .. ' 7',
+		output = "moreblocks:stair_" .. subname .. "_inner 1",
 		recipe = {
-			{recipeitem, recipeitem, recipeitem},
-			{"", "", recipeitem},
-			{"", "", recipeitem},
+			{"moreblocks:micro_" .. subname .. "_bottom", "moreblocks:stair_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:stair_' .. subname .. '_wall' .. ' 7',
+		output = "moreblocks:stair_" .. subname .. "_outer 1",
 		recipe = {
-			{recipeitem, recipeitem, recipeitem},
-			{recipeitem, ""	, ""},
-			{recipeitem, "", ""},
+			{"moreblocks:micro_" .. subname .. "_bottom"},
+			{"moreblocks:slab_" .. subname},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_inner_inverted 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_inner"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_outer_inverted 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_outer"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_inner 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_inner_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_outer 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_outer_inverted"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_wall_half 2",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_wall"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_wall 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_wall_half"},
+			{"moreblocks:stair_" .. subname .. "_wall_half"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_wall_half_inverted 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_wall_half"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_wall_half 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_wall_half_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_inverted 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. " 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_inverted"},
 		},
 	})
 end
 
 -- Node will be called moreblocks:slab_<subname>
-function moreblocks.register_slab(subname, recipeitem, groups, images, description)
+function moreblocks.register_slab(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("moreblocks:slab_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "moreblocks:slab_" .. drop,
 		paramtype = "light",
 		is_ground_content = true,
 		groups = groups,
@@ -988,6 +1266,7 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "moreblocks:slab_" .. drop .. "_inverted",
 		paramtype = "light",
 		is_ground_content = true,
 		groups = groups,
@@ -1006,6 +1285,7 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "moreblocks:slab_" .. drop .. "_wall",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -1022,14 +1302,14 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 	})
 
 	minetest.register_craft({
-		output = 'moreblocks:slab_' .. subname .. ' 6',
+		output = "moreblocks:slab_" .. subname .. " 6",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:slab_' .. subname .. '_wall' .. ' 6',
+		output = "moreblocks:slab_" .. subname .. "_wall 6",
 		recipe = {
 			{recipeitem},
 			{recipeitem},
@@ -1038,26 +1318,58 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:slab_' .. subname .. '_inverted' .. ' 1',
+		output = "moreblocks:slab_" .. subname .. "_inverted 1",
 		recipe = {
-			{'moreblocks:slab_' .. subname},
+			{"moreblocks:slab_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:slab_' .. subname .. ' 1',
+		output = "moreblocks:slab_" .. subname .. " 1",
 		recipe = {
-			{'moreblocks:slab_' .. subname .. '_inverted'},
+			{"moreblocks:slab_" .. subname .. "_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = recipeitem .. " 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname},
+			{"moreblocks:slab_" .. subname},
+		},
+	})
+
+	minetest.register_craft({
+		output = recipeitem .. " 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_inverted"},
+			{"moreblocks:slab_" .. subname .. "_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = recipeitem .. " 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_wall", "moreblocks:slab_" .. subname .. "_wall"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = recipeitem,
+		recipe = {
+			{"moreblocks:slab_" .. subname},
+			{"moreblocks:slab_" .. subname},
 		},
 	})
 end
 
 -- Node will be called moreblocks:panel_<subname>
-function moreblocks.register_panel(subname, recipeitem, groups, images, description)
+function moreblocks.register_panel(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("moreblocks:panel_" .. subname .. "_bottom", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "moreblocks:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -1077,6 +1389,7 @@ function moreblocks.register_panel(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "moreblocks:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -1096,6 +1409,7 @@ function moreblocks.register_panel(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
+		drop = "moreblocks:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -1110,16 +1424,16 @@ function moreblocks.register_panel(subname, recipeitem, groups, images, descript
 		},
 		sounds = default.node_sound_stone_defaults(),
 	})
-
+	
 	minetest.register_craft({
-		output = 'moreblocks:panel_' .. subname .. '_bottom' .. ' 8',
+		output = "moreblocks:panel_" .. subname .. "_bottom 8",
 		recipe = {
 			{recipeitem, recipeitem},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:panel_' .. subname .. '_vertical' .. ' 8',
+		output = "moreblocks:panel_" .. subname .. "_vertical 8",
 		recipe = {
 			{recipeitem},
 			{recipeitem},
@@ -1127,74 +1441,167 @@ function moreblocks.register_panel(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:panel_' .. subname .. '_top' .. ' 1',
+		output = "moreblocks:panel_" .. subname .. "_top 1",
 		recipe = {
-			{'moreblocks:panel_' .. subname .. '_bottom'},
+			{"moreblocks:panel_" .. subname .. "_bottom"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = 'moreblocks:panel_' .. subname .. '_bottom' .. ' 1',
+		output = "moreblocks:panel_" .. subname .. "_bottom 1",
 		recipe = {
-			{'moreblocks:panel_' .. subname .. '_top'},
+			{"moreblocks:panel_" .. subname .. "_top"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:panel_" .. subname .. "_vertical 2",
+		recipe = {
+			{"moreblocks:panel_" .. subname .. "_bottom"},
+			{"moreblocks:panel_" .. subname .. "_bottom"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:panel_" .. subname .. "_bottom 2",
+		recipe = {
+			{"moreblocks:panel_" .. subname .. "_vertical", "moreblocks:panel_" .. subname .. "_vertical"},
 		},
 	})
 end
 
--- Nodes will be called moreblocks:{stair,slab}_<subname>
-function moreblocks.register_stair_and_slab_and_panel(subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel)
-	moreblocks.register_stair(subname, recipeitem, groups, images, desc_stair)
-	moreblocks.register_slab(subname, recipeitem, groups, images, desc_slab)
-	moreblocks.register_panel(subname, recipeitem, groups, images, desc_panel)
+-- Node will be called moreblocks:micro_<subname>
+function moreblocks.register_micro(subname, recipeitem, groups, images, description, drop)
+	minetest.register_node("moreblocks:micro_" .. subname .. "_bottom", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:micro_" .. drop .. "_bottom",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0, 0, 0, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0, 0, 0, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+	minetest.register_node("moreblocks:micro_" .. subname .. "_top", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:micro_" .. drop .. "_top",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, 0, 0, 0, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, 0, 0, 0, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:micro_" .. subname .. "_bottom 8",
+		recipe = {
+			{"default:stick"},
+			{recipeitem},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:micro_" .. subname .. "_top 1",
+		recipe = {
+			{"moreblocks:micro_" .. subname .. "_bottom"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:micro_" .. subname .. "_bottom 1",
+		recipe = {
+			{"moreblocks:micro_" .. subname .. "_top"},
+		},
+	})
 end
 
--- Some stairs/slabs/panels
+-- Nodes will be called moreblocks:{stair,slab,panel,micro}_<subname>
+function moreblocks.register_stair_and_slab_and_panel_and_micro(subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop)
+	moreblocks.register_stair(subname, recipeitem, groups, images, desc_stair, drop)
+	moreblocks.register_slab(subname, recipeitem, groups, images, desc_slab, drop)
+	moreblocks.register_panel(subname, recipeitem, groups, images, desc_panel, drop)
+	moreblocks.register_micro(subname, recipeitem, groups, images, desc_micro, drop)
+end
 
-moreblocks.register_stair_and_slab_and_panel("stonebrick", "moreblocks:stonebrick",
+moreblocks.register_stair_and_slab_and_panel_and_micro("stonebrick", "moreblocks:stonebrick",
 		{cracky=3},
 		{"moreblocks_stonebrick.png"},
 		"Stone Bricks Stairs",
 		"Stone Bricks Slab",
-		"Stone Bricks Panel")
+		"Stone Bricks Panel",
+		"Stone Bricks Microblock",
+		"stonebrick")
 		
-moreblocks.register_stair_and_slab_and_panel("ironstonebrick", "moreblocks:ironstonebrick",
+moreblocks.register_stair_and_slab_and_panel_and_micro("ironstonebrick", "moreblocks:ironstonebrick",
 		{cracky=3},
 		{"moreblocks_stonebrick.png"},
 		"Iron Stone Bricks Stairs",
 		"Iron Stone Bricks Slab",
-		"Iron Stone Bricks Panel")
+		"Iron Stone Bricks Panel",
+		"Iron Stone Bricks Microblock",
+		"ironstonebrick")
 		
-moreblocks.register_stair_and_slab_and_panel("stonesquare", "moreblocks:stonesquare",
+moreblocks.register_stair_and_slab_and_panel_and_micro("stonesquare", "moreblocks:stonesquare",
 		{cracky=3},
 		{"moreblocks_stonesquare.png"},
 		"Stonesquare Stairs",
 		"Stonesquare Slab",
-		"Stonesquare Panel")
+		"Stonesquare Panel",
+		"Stonesquare Microblock",
+		"stonesquare")
 		
-moreblocks.register_stair_and_slab_and_panel("splitstonesquare", "moreblocks:splitstonesquare",
+moreblocks.register_stair_and_slab_and_panel_and_micro("splitstonesquare", "moreblocks:splitstonesquare",
 		{cracky=3},
 		{"moreblocks_splitstonesquare_top.png", "moreblocks_splitstonesquare.png"},
 		"Split Stonesquare Stairs",
 		"Split Stonesquare Slab",
-		"Split Stonesquare Panel")
+		"Split Stonesquare Panel",
+		"Split Stonesquare Microblock",
+		"splitstonesquare")
 		
-moreblocks.register_stair_and_slab_and_panel("junglewood", "moreblocks:junglewood",
+moreblocks.register_stair_and_slab_and_panel_and_micro("junglewood", "moreblocks:junglewood",
 		{snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"moreblocks_junglewood.png"},
 		"Jungle Wood Stairs",
 		"Jungle Wood Slab",
-		"Jungle Wood Panel")
+		"Jungle Wood Panel",
+		"Jungle Wood Microblock",
+		"junglewood")
 		
-moreblocks.register_stair_and_slab_and_panel("circlestonebrick", "moreblocks:circlestonebrick",
+moreblocks.register_stair_and_slab_and_panel_and_micro("circlestonebrick", "moreblocks:circlestonebrick",
 		{cracky=3},
 		{"moreblocks_circlestonebrick.png"},
-		"Stone Stairs",
-		"Stone Slab",
-		"Stone Panel")
+		"Circle Stone Brick Stairs",
+		"Circle Stone Brick Slab",
+		"Cricle Stone Brick Panel",
+		"Circle Stone Brick Microblock",
+		"circlestonebrick")
 		
-moreblocks.register_stair_and_slab_and_panel("plankstone", "moreblocks:plankstone",
+moreblocks.register_stair_and_slab_and_panel_and_micro("plankstone", "moreblocks:plankstone",
 		{cracky=3},
-		{"moreblocks_junglewood.png"},
+		{"moreblocks_plankstone.png"},
 		"Plankstone Stairs",
 		"Plankstone Slab",
-		"Plankstone Panel")
+		"Plankstone Panel",
+		"Plankstone Microblock",
+		"plankstone")

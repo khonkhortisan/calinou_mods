@@ -712,7 +712,7 @@ function stairsplus.register_micro(subname, recipeitem, groups, images, descript
 	})
 end
 
--- Nodes will be called stairsplus:{stair,slab}_<subname>
+-- Nodes will be called moreblocks:{stair,slab,panel,micro}_<subname>
 function stairsplus.register_stair_and_slab_and_panel_and_micro(subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop)
 	stairsplus.register_stair(subname, recipeitem, groups, images, desc_stair, drop)
 	stairsplus.register_slab(subname, recipeitem, groups, images, desc_slab, drop)
