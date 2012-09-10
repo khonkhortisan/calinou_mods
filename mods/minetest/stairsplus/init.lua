@@ -1,8 +1,8 @@
 --[[
 ****
-Stairss+
+Stairs+
 by Calinou
-Version 12.09.09
+Version 12.09.10
 Licensed under WTFPL.
 ****
 --]]
@@ -65,7 +65,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "stairsplus:stair_" .. drop .. "_inverted",
+		drop = "stairsplus:stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -91,7 +91,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "stairsplus:stair_" .. drop .. "_wall",
+		drop = "stairsplus:stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -143,7 +143,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "stairsplus:stair_" .. drop .. "_wall_half_inverted",
+		drop = "stairsplus:stair_" .. drop .. "_wall_half",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -218,6 +218,60 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		},
 		sounds = default.node_sound_stone_defaults(),
 	})
+	
+		minetest.register_node("stairsplus:stair_" .. subname .. "_inner_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "stairsplus:stair_" .. drop .. "_inner",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0, 0},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+				{-0.5, -0.5, -0.5, 0, 0, 0},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("stairsplus:stair_" .. subname .. "_outer_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "stairsplus:stair_" .. drop .. "_outer",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0, 0, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0, 0, 0.5},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
 
 	minetest.register_craft({
 		output = "stairsplus:stair_" .. subname .. " 8",
@@ -238,7 +292,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_inverted" .. " 8",
+		output = "stairsplus:stair_" .. subname .. "_wall 8",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 			{recipeitem, recipeitem, ""},
@@ -247,7 +301,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_inverted" .. " 8",
+		output = "stairsplus:stair_" .. subname .. "_wall 8",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 			{"", recipeitem, recipeitem},
@@ -256,49 +310,101 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_inverted" .. " 1",
+		output = "stairsplus:stair_" .. subname .. "_wall 2",
 		recipe = {
-			{"stairsplus:stair_" .. subname},
+			{"stairsplus:stair_" .. subname, "stairsplus:stair_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_inner" .. " 1",
+		output = "stairsplus:stair_" .. subname .. "_wall 2",
+		recipe = {
+			{"stairsplus:stair_" .. subname .. "_inverted", "stairsplus:stair_" .. subname .. "_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:stair_" .. subname .. " 2",
+		recipe = {
+			{"stairsplus:stair_" .. subname .. "_wall"},
+			{"stairsplus:stair_" .. subname .. "_wall"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:stair_" .. subname .. "_inner 1",
 		recipe = {
 			{"stairsplus:micro_" .. subname .. "_bottom", "stairsplus:stair_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_outer" .. " 1",
+		output = "stairsplus:stair_" .. subname .. "_outer 1",
 		recipe = {
-			{"stairsplus:stair_" .. subname, "stairsplus:micro_" .. subname .. "_bottom"},
+			{"stairsplus:micro_" .. subname .. "_bottom"},
+			{"stairsplus:slab_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_wall_half" .. " 1",
+		output = "stairsplus:stair_" .. subname .. "_inner_inverted 1",
+		recipe = {
+			{"stairsplus:stair_" .. subname .. "_inner"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:stair_" .. subname .. "_outer_inverted 1",
+		recipe = {
+			{"stairsplus:stair_" .. subname .. "_outer"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:stair_" .. subname .. "_inner 1",
+		recipe = {
+			{"stairsplus:stair_" .. subname .. "_inner_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:stair_" .. subname .. "_outer 1",
+		recipe = {
+			{"stairsplus:stair_" .. subname .. "_outer_inverted"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "stairsplus:stair_" .. subname .. "_wall_half 2",
 		recipe = {
 			{"stairsplus:stair_" .. subname .. "_wall"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_wall_half_inverted" .. " 1",
+		output = "stairsplus:stair_" .. subname .. "_wall 1",
+		recipe = {
+			{"stairsplus:stair_" .. subname .. "_wall_half"},
+			{"stairsplus:stair_" .. subname .. "_wall_half"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:stair_" .. subname .. "_wall_half_inverted 1",
 		recipe = {
 			{"stairsplus:stair_" .. subname .. "_wall_half"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_wall_half" .. " 1",
+		output = "stairsplus:stair_" .. subname .. "_wall_half 1",
 		recipe = {
 			{"stairsplus:stair_" .. subname .. "_wall_half_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_inverted" .. " 1",
+		output = "stairsplus:stair_" .. subname .. "_inverted 1",
 		recipe = {
 			{"stairsplus:stair_" .. subname},
 		},
@@ -308,24 +414,6 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		output = "stairsplus:stair_" .. subname .. " 1",
 		recipe = {
 			{"stairsplus:stair_" .. subname .. "_inverted"},
-		},
-	})
-	
-	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_wall" .. " 7",
-		recipe = {
-			{recipeitem, recipeitem, recipeitem},
-			{"", "", recipeitem},
-			{"", "", recipeitem},
-		},
-	})
-	
-	minetest.register_craft({
-		output = "stairsplus:stair_" .. subname .. "_wall" .. " 7",
-		recipe = {
-			{recipeitem, recipeitem, recipeitem},
-			{recipeitem, ""	, ""},
-			{recipeitem, "", ""},
 		},
 	})
 end
@@ -398,7 +486,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:slab_" .. subname .. "_wall" .. " 6",
+		output = "stairsplus:slab_" .. subname .. "_wall 6",
 		recipe = {
 			{recipeitem},
 			{recipeitem},
@@ -407,7 +495,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:slab_" .. subname .. "_inverted" .. " 1",
+		output = "stairsplus:slab_" .. subname .. "_inverted 1",
 		recipe = {
 			{"stairsplus:slab_" .. subname},
 		},
@@ -442,6 +530,14 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 			{"stairsplus:slab_" .. subname .. "_wall", "stairsplus:slab_" .. subname .. "_wall"},
 		},
 	})
+	
+	minetest.register_craft({
+		output = recipeitem,
+		recipe = {
+			{"stairsplus:slab_" .. subname},
+			{"stairsplus:slab_" .. subname},
+		},
+	})
 end
 
 -- Node will be called stairsplus:panel_<subname>
@@ -470,7 +566,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "stairsplus:panel_" .. drop .. "_top",
+		drop = "stairsplus:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -490,7 +586,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "stairsplus:panel_" .. drop .. "_vertical",
+		drop = "stairsplus:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -507,14 +603,14 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:panel_" .. subname .. "_bottom" .. " 8",
+		output = "stairsplus:panel_" .. subname .. "_bottom 8",
 		recipe = {
 			{recipeitem, recipeitem},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:panel_" .. subname .. "_vertical" .. " 8",
+		output = "stairsplus:panel_" .. subname .. "_vertical 8",
 		recipe = {
 			{recipeitem},
 			{recipeitem},
@@ -522,21 +618,21 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:panel_" .. subname .. "_top" .. " 1",
+		output = "stairsplus:panel_" .. subname .. "_top 1",
 		recipe = {
 			{"stairsplus:panel_" .. subname .. "_bottom"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:panel_" .. subname .. "_bottom" .. " 1",
+		output = "stairsplus:panel_" .. subname .. "_bottom 1",
 		recipe = {
 			{"stairsplus:panel_" .. subname .. "_top"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:panel_" .. subname .. "_vertical" .. " 2",
+		output = "stairsplus:panel_" .. subname .. "_vertical 2",
 		recipe = {
 			{"stairsplus:panel_" .. subname .. "_bottom"},
 			{"stairsplus:panel_" .. subname .. "_bottom"},
@@ -544,7 +640,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
-		output = "stairsplus:panel_" .. subname .. "_bottom" .. " 2",
+		output = "stairsplus:panel_" .. subname .. "_bottom 2",
 		recipe = {
 			{"stairsplus:panel_" .. subname .. "_vertical", "stairsplus:panel_" .. subname .. "_vertical"},
 		},
@@ -686,3 +782,12 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("steelblock", "default:st
 		"Steel Block Panel",
 		"Steel Microblock",
 		"steelblock")
+		
+stairsplus.register_stair_and_slab_and_panel_and_micro("desert_stone", "default:desert_stone",
+		{cracky=3},
+		{"default_desert_stone.png"},
+		"Desert Stone Stairs",
+		"Desert Stone Slab",
+		"Desert Stone Panel",
+		"Desert Stone Microblock",
+		"desert_stone")
