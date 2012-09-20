@@ -5,7 +5,7 @@ Calinou's Mods for Minetest [http://minetest.net], a free and opensource Minecra
 
 This Git repository is mostly made for servers; it allows easy updating.
 
-To install, just clone this repository somewhere, then copy the "mods" folder in Minetest's installation folder.
+To install, just clone this repository somewhere, then copy the "calinou_mods" folder in the "mods" folder of Minetest's installation folder.
 
 
 
