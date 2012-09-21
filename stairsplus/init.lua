@@ -2,7 +2,7 @@
 ****
 Stairs+
 by Calinou
-Version 12.09.10
+Version 12.09.21
 Licensed under WTFPL.
 ****
 --]]
@@ -17,6 +17,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		tiles = images,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -42,6 +43,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		tiles = images,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -68,6 +70,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -94,6 +97,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -120,6 +124,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:stair_" .. drop .. "_wall_half",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -146,6 +151,8 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:stair_" .. drop .. "_wall_half",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -200,6 +207,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:stair_" .. drop .. "_outer",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -226,6 +234,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:stair_" .. drop .. "_inner",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -254,6 +263,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:stair_" .. drop .. "_outer",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -426,6 +436,27 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		tiles = images,
 		drop = "stairsplus:slab_" .. drop,
 		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	minetest.register_node(":stairs:slab_" .. subname, {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "stairsplus:slab_" .. drop,
+		paramtype = "light",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -445,6 +476,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		tiles = images,
 		drop = "stairsplus:slab_" .. drop .. "_inverted",
 		paramtype = "light",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -465,6 +497,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		drop = "stairsplus:slab_" .. drop .. "_wall",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -549,6 +582,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -569,6 +603,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -589,6 +624,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -656,6 +692,7 @@ function stairsplus.register_micro(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:micro_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -676,6 +713,7 @@ function stairsplus.register_micro(subname, recipeitem, groups, images, descript
 		drop = "stairsplus:micro_" .. drop .. "_top",
 		paramtype = "light",
 		paramtype2 = "facedir",
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
