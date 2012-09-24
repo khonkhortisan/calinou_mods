@@ -2,7 +2,7 @@
 ****
 Stairs+
 by Calinou
-Version 12.09.23
+Version 12.09.24
 Licensed under WTFPL.
 ****
 --]]
@@ -10,6 +10,7 @@ Licensed under WTFPL.
 stairsplus = {}
 
 -- Node will be called stairsplus:stair_<subname>
+
 function stairsplus.register_stair(subname, recipeitem, groups, images, description, drop)
 		minetest.register_node("stairsplus:stair_" .. subname, {
 		description = description,
@@ -429,6 +430,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 end
 
 -- Node will be called stairsplus:slab_<subname>
+
 function stairsplus.register_slab(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("stairsplus:slab_" .. subname, {
 		description = description,
@@ -511,6 +513,46 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		sounds = default.node_sound_stone_defaults(),
 	})
 
+	minetest.register_node("stairsplus:slab_" .. subname .. "_quarter", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "stairsplus:slab_" .. drop,
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	minetest.register_node("stairsplus:slab_" .. subname .. "_quarter_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "stairsplus:slab_" .. drop,
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, 0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, 0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
 	minetest.register_craft({
 		output = "stairsplus:slab_" .. subname .. " 6",
 		recipe = {
@@ -571,9 +613,31 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 			{"stairsplus:slab_" .. subname},
 		},
 	})
+
+	minetest.register_craft({
+		output = "stairsplus:slab_" .. subname .. "_quarter 6",
+		recipe = {
+			{"stairsplus:slab_" .. subname, "stairsplus:slab_" .. subname, "stairsplus:slab_" .. subname},
+		},
+	})
+
+	minetest.register_craft({
+		output = "stairsplus:slab_" .. subname .. "_quarter_inverted 6",
+		recipe = {
+			{"stairsplus:slab_" .. subname .. "_quarter"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "stairsplus:slab_" .. subname .. "_quarter 1",
+		recipe = {
+			{"stairsplus:slab_" .. subname .. "_quarter_inverted"},
+		},
+	})
 end
 
 -- Node will be called stairsplus:panel_<subname>
+
 function stairsplus.register_panel(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("stairsplus:panel_" .. subname .. "_bottom", {
 		description = description,
@@ -684,6 +748,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 end
 
 -- Node will be called stairsplus:micro_<subname>
+
 function stairsplus.register_micro(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("stairsplus:micro_" .. subname .. "_bottom", {
 		description = description,
