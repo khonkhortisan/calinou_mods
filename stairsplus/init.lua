@@ -2,7 +2,7 @@
 ****
 Stairs+
 by Calinou
-Version 12.09.21
+Version 12.09.23
 Licensed under WTFPL.
 ****
 --]]
@@ -829,3 +829,12 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("desert_stone", "default:
 		"Desert Stone Panel",
 		"Desert Stone Microblock",
 		"desert_stone")
+		
+stairsplus.register_stair_and_slab_and_panel_and_micro("glass", "default:glass",
+		{snappy=2,cracky=3,oddly_breakable_by_hand=3},
+		{"default_glass.png"},
+		"Glass Stairs",
+		"Glass Slab",
+		"Glass Panel",
+		"Glass Microblock",
+		"glass")
