@@ -20,7 +20,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
 		is_ground_content = true,
-		groups = groups
+		groups = groups,
 		node_box = {
 			type = "fixed",
 			fixed = {
