@@ -381,13 +381,13 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:glowglass 1",
 	type = "shapeless",
-	recipe = {"torch", "glass"},
+	recipe = {"default:torch", "default:glass"},
 })
 
 minetest.register_craft({
 	output = "moreblocks:superglowglass 1",
 	type = "shapeless",
-	recipe = {"torch", "torch", "glass"},
+	recipe = {"default:torch", "default:torch", "default:glass"},
 })
 
 minetest.register_craft({
