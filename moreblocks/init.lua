@@ -2,7 +2,7 @@
 ****
 More Blocks
 by Calinou
-Version 12.09.23
+Version 12.09.27
 Licensed under WTFPL.
 ****
 --]]
@@ -381,13 +381,13 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:glowglass 1",
 	type = "shapeless",
-	recipe = {"default:torch", "default:glass"},
+	recipe = {"torch", "glass"},
 })
 
 minetest.register_craft({
 	output = "moreblocks:superglowglass 1",
 	type = "shapeless",
-	recipe = {"default:torch", "default:torch", "default:glass"},
+	recipe = {"torch", "torch", "glass"},
 })
 
 minetest.register_craft({
@@ -827,6 +827,8 @@ minetest.register_craftitem("moreblocks:junglestick", {
 
 moreblocks = {}
 
+-- Node will be called moreblocks:stair_<subname>
+
 function moreblocks.register_stair(subname, recipeitem, groups, images, description, drop)
 		minetest.register_node("moreblocks:stair_" .. subname, {
 		description = description,
@@ -902,6 +904,58 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 			fixed = {
 				{-0.5, 0, -0.5, 0.5, 0.5, 0.5},
 				{-0.5, -0.5, 0, 0.5, 0, 0.5},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_half", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0, 0, 0.5},
+				{-0.5, 0, 0, 0, 0.5, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0, 0, 0.5},
+				{-0.5, 0, 0, 0, 0.5, 0.5},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+		minetest.register_node("moreblocks:stair_" .. subname .. "_half_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0, 0, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, 0, -0.5, 0, 0.5, 0.5},
+				{-0.5, -0.5, 0, 0, 0, 0.5},
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
@@ -1174,6 +1228,28 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 	})
 	
 	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_half 1",
+		recipe = {
+			{"moreblocks:micro_" .. subname .. "_bottom"},
+			{"moreblocks:panel_" .. subname .. "_bottom"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_half_inverted 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_half 1"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_half 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_half_inverted 1"},
+		},
+	})
+	
+	minetest.register_craft({
 		output = "moreblocks:stair_" .. subname .. "_inner_inverted 1",
 		recipe = {
 			{"moreblocks:stair_" .. subname .. "_inner"},
@@ -1246,6 +1322,7 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 end
 
 -- Node will be called moreblocks:slab_<subname>
+
 function moreblocks.register_slab(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("moreblocks:slab_" .. subname, {
 		description = description,
@@ -1328,6 +1405,46 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 		sounds = default.node_sound_stone_defaults(),
 	})
 
+	minetest.register_node("moreblocks:slab_" .. subname .. "_quarter", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:slab_" .. drop .. "_quarter",
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	minetest.register_node("moreblocks:slab_" .. subname .. "_quarter_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:slab_" .. drop .. "_quarter",
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, 0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, 0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
 	minetest.register_craft({
 		output = "moreblocks:slab_" .. subname .. " 6",
 		recipe = {
@@ -1388,9 +1505,31 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 			{"moreblocks:slab_" .. subname},
 		},
 	})
+
+	minetest.register_craft({
+		output = "moreblocks:slab_" .. subname .. "_quarter 6",
+		recipe = {
+			{"moreblocks:slab_" .. subname, "moreblocks:slab_" .. subname, "moreblocks:slab_" .. subname},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:slab_" .. subname .. "_quarter_inverted 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_quarter"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:slab_" .. subname .. "_quarter 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_quarter_inverted"},
+		},
+	})
 end
 
 -- Node will be called moreblocks:panel_<subname>
+
 function moreblocks.register_panel(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("moreblocks:panel_" .. subname .. "_bottom", {
 		description = description,
@@ -1501,6 +1640,7 @@ function moreblocks.register_panel(subname, recipeitem, groups, images, descript
 end
 
 -- Node will be called moreblocks:micro_<subname>
+
 function moreblocks.register_micro(subname, recipeitem, groups, images, description, drop)
 	minetest.register_node("moreblocks:micro_" .. subname .. "_bottom", {
 		description = description,
