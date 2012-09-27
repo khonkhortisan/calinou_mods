@@ -2,7 +2,7 @@
 ****
 Stairs+
 by Calinou
-Version 12.09.25
+Version 12.09.27
 Licensed under WTFPL.
 ****
 --]]
