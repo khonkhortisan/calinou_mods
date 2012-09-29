@@ -603,8 +603,8 @@ minetest.register_node("moreblocks:plankstone", {
 minetest.register_node("moreblocks:ironglass", {
 	description = "Iron Glass",
 	drawtype = "glasslike",
-	tiles = {"moreblocks_glowglass.png"},
-	inventory_image = minetest.inventorycube("moreblocks_glowglass.png"),
+	tiles = {"moreblocks_ironglass.png"},
+	inventory_image = minetest.inventorycube("moreblocks_ironglass.png"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
@@ -615,8 +615,8 @@ minetest.register_node("moreblocks:ironglass", {
 minetest.register_node("moreblocks:coalglass", {
 	description = "Coal Glass",
 	drawtype = "glasslike",
-	tiles = {"moreblocks_glowglass.png"},
-	inventory_image = minetest.inventorycube("moreblocks_glowglass.png"),
+	tiles = {"moreblocks_coalglass.png"},
+	inventory_image = minetest.inventorycube("moreblocks_coalglass.png"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
@@ -627,8 +627,8 @@ minetest.register_node("moreblocks:coalglass", {
 minetest.register_node("moreblocks:cleanglass", {
 	description = "Clean Glass",
 	drawtype = "glasslike",
-	tiles = {"moreblocks_glowglass.png"},
-	inventory_image = minetest.inventorycube("moreblocks_glowglass.png"),
+	tiles = {"moreblocks_cleanglass.png"},
+	inventory_image = minetest.inventorycube("moreblocks_cleanglass.png"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
@@ -713,8 +713,8 @@ minetest.register_node("moreblocks:trapstone", {
 minetest.register_node("moreblocks:trapglass", {
 	description = "Trapglass",
 	drawtype = "glasslike",
-	tiles = {"moreblocks_glowglass.png"},
-	inventory_image = minetest.inventorycube("moreblocks_glowglass.png"),
+	tiles = {"moreblocks_trapglass.png"},
+	inventory_image = minetest.inventorycube("moreblocks_trapglass.png"),
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
