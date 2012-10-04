@@ -627,6 +627,46 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		sounds = default.node_sound_stone_defaults(),
 	})
 
+	minetest.register_node("stairsplus:slab_" .. subname .. "_three_quarter", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "stairsplus:slab_" .. drop .. "_three_quarter",
+		paramtype = "light",
+		sunlight_propogates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0.25, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0.25, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	minetest.register_node("stairsplus:slab_" .. subname .. "_three_quarter_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "stairsplus:slab_" .. drop .. "_quarter",
+		paramtype = "light",
+		sunlight_propogates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
 	minetest.register_craft({
 		output = "stairsplus:slab_" .. subname .. " 6",
 		recipe = {
@@ -706,6 +746,23 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		output = "stairsplus:slab_" .. subname .. "_quarter 1",
 		recipe = {
 			{"stairsplus:slab_" .. subname .. "_quarter_inverted"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "stairsplus:slab_" .. subname .. "_three_quarter 1",
+		recipe = {
+			{"stairsplus:slab_" .. subname .. "_quarter"},
+			{"stairsplus:slab_" .. subname .. "_quarter"},
+			{"stairsplus:slab_" .. subname .. "_quarter"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "stairsplus:slab_" .. subname .. "_quarter 6",
+		recipe = {
+			{"stairsplus:slab_" .. subname .. "_three_quarter"},
+			{"stairsplus:slab_" .. subname .. "_three_quarter"},
 		},
 	})
 end
