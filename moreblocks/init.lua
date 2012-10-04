@@ -699,7 +699,14 @@ minetest.register_node("moreblocks:splitstonesquare", {
 
 minetest.register_node("moreblocks:plankstone", {
 	description = "Plankstone",
-	tiles = {"moreblocks_plankstone.png"},
+	tiles = {
+		"moreblocks_plankstone.png",
+		"moreblocks_plankstone.png",
+		"moreblocks_plankstone.png",
+		"moreblocks_plankstone.png",
+		"moreblocks_plankstone_2.png",
+		"moreblocks_plankstone_2.png",
+	},
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
