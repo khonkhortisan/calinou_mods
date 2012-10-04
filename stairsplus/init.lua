@@ -2,7 +2,7 @@
 ****
 Stairs+
 by Calinou
-Version 12.09.27
+Version 12.10.04
 Licensed under WTFPL.
 ****
 --]]
@@ -633,7 +633,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		tiles = images,
 		drop = "stairsplus:slab_" .. drop .. "_three_quarter",
 		paramtype = "light",
-		sunlight_propogates = true,
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -653,7 +653,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		tiles = images,
 		drop = "stairsplus:slab_" .. drop .. "_quarter",
 		paramtype = "light",
-		sunlight_propogates = true,
+		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
 		node_box = {
@@ -746,6 +746,20 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		output = "stairsplus:slab_" .. subname .. "_quarter 1",
 		recipe = {
 			{"stairsplus:slab_" .. subname .. "_quarter_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:slab_" .. subname .. "_three_quarter_inverted 1",
+		recipe = {
+			{"stairsplus:slab_" .. subname .. "_three_quarter"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "stairsplus:slab_" .. subname .. "_three_quarter 1",
+		recipe = {
+			{"stairsplus:slab_" .. subname .. "_three_quarter_inverted"},
 		},
 	})
 
