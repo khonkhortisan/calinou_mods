@@ -651,7 +651,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "stairsplus:slab_" .. drop .. "_quarter",
+		drop = "stairsplus:slab_" .. drop .. "_three_quarter",
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
