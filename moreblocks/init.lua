@@ -759,7 +759,14 @@ minetest.register_node("moreblocks:cactusbrick", {
 
 minetest.register_node("moreblocks:cactuschecker", {
 	description = "Cactus Checker",
-	tiles = {"moreblocks_cactuschecker.png"},
+	tiles = {
+		"moreblocks_cactuschecker.png",
+		"moreblocks_cactuschecker.png",
+		"moreblocks_cactuschecker.png",
+		"moreblocks_cactuschecker.png",
+		"moreblocks_cactuschecker_2.png",
+		"moreblocks_cactuschecker_2.png",
+	},
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -799,7 +806,14 @@ minetest.register_node("moreblocks:ironstone", {
 
 minetest.register_node("moreblocks:coalchecker", {
 	description = "Coalchecker",
-	tiles = {"moreblocks_coalchecker.png"},
+	tiles = {
+		"moreblocks_coalchecker.png",
+		"moreblocks_coalchecker.png",
+		"moreblocks_coalchecker.png",
+		"moreblocks_coalchecker.png",
+		"moreblocks_coalchecker_2.png",
+		"moreblocks_coalchecker_2.png",
+	},
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
@@ -807,7 +821,14 @@ minetest.register_node("moreblocks:coalchecker", {
 
 minetest.register_node("moreblocks:ironchecker", {
 	description = "Ironchecker",
-	tiles = {"moreblocks_ironchecker.png"},
+	tiles = {
+		"moreblocks_ironchecker.png",
+		"moreblocks_ironchecker.png",
+		"moreblocks_ironchecker.png",
+		"moreblocks_ironchecker.png",
+		"moreblocks_ironchecker_2.png",
+		"moreblocks_ironchecker_2.png",
+	},
 	is_ground_content = true,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
