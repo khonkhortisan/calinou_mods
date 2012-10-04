@@ -2,7 +2,7 @@
 ****
 More Blocks
 by Calinou
-Version 12.09.27
+Version 12.10.04
 Licensed under WTFPL.
 ****
 --]]
@@ -148,6 +148,111 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "toolrepair",
 	additional_wear = -0.15,
+})
+
+-- Redefinitions of some default nodes
+
+minetest.register_node(":default:ladder", {
+	description = "Ladder",
+	drawtype = "signlike",
+	tiles = {"default_ladder.png"},
+	inventory_image = "default_ladder.png",
+	wield_image = "default_ladder.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	paramtype2 = "wallmounted",
+	is_ground_content = true,
+	walkable = false,
+	climbable = true,
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=3,flammable=2},
+	legacy_wallmounted = true,
+	sounds = default.node_sound_wood_defaults(),
+})
+
+minetest.register_node(":default:sapling", {
+	description = "Sapling",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"default_sapling.png"},
+	inventory_image = "default_sapling.png",
+	wield_image = "default_sapling.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	groups = {snappy=2,dig_immediate=3,flammable=2},
+	sounds = default.node_sound_defaults(),
+})
+
+minetest.register_node(":default:dry_shrub", {
+	description = "Dry Shrub",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"default_dry_shrub.png"},
+	inventory_image = "default_dry_shrub.png",
+	wield_image = "default_dry_shrub.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	groups = {snappy=3,flammable=3},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/3, -1/2, -1/3, 1/3, 1/6, 1/3},
+	},
+})
+
+minetest.register_node(":default:rail", {
+	description = "Rail",
+	drawtype = "raillike",
+	tiles = {"default_rail.png", "default_rail_curved.png", "default_rail_t_junction.png", "default_rail_crossing.png"},
+	inventory_image = "default_rail.png",
+	wield_image = "default_rail.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+                fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
+	},
+	groups = {bendy=2,snappy=1,dig_immediate=2},
+})
+
+minetest.register_node(":default:papyrus", {
+	description = "Papyrus",
+	drawtype = "plantlike",
+	tiles = {"default_papyrus.png"},
+	inventory_image = "default_papyrus.png",
+	wield_image = "default_papyrus.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	walkable = false,
+	groups = {snappy=3,flammable=2},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node(":default:fence_wood", {
+	description = "Wooden Fence",
+	drawtype = "fencelike",
+	tiles = {"default_wood.png"},
+	inventory_image = "default_fence.png",
+	wield_image = "default_fence.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
 })
 
 -- Crafting
