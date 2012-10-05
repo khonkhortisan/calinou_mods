@@ -2,7 +2,6 @@
 ****
 More Blocks
 by Calinou
-Version 12.10.04
 Licensed under WTFPL.
 ****
 --]]
