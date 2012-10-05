@@ -407,8 +407,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:plankstone 4",
 	recipe = {
-		{"cobble", "cobble"},
-		{"wood", "wood"},
+		{"stone", "wood"},
+		{"wood", "stone"},
 	}
 })
 
