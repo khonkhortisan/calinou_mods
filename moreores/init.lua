@@ -3,7 +3,7 @@
 More Ores
 by Calinou
 with the help of MarkTraceur, GloopMaster and Kotolegokot
-Version 12.09.23
+Version 12.10.05
 Licensed under GPLv3 or later, see: http://www.gnu.org/licenses/gpl-3.0.html
 ****
 --]]
@@ -188,7 +188,7 @@ local function add_ore(modname, mineral_name, oredef)
 		end
 
 		if toolname == "pick" then
-			tdef.description = upcase_name .. "Pickaxe"
+			tdef.description = upcase_name .. " Pickaxe"
 		end
 
 		local fulltoolname = tool_base .. toolname .. tool_post
