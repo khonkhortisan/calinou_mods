@@ -2,6 +2,7 @@
 ****
 Stairs+
 by Calinou
+Version 12.10.04
 Licensed under WTFPL.
 ****
 --]]
@@ -617,6 +618,63 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "stairsplus:slab_" .. subname then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "stairsplus:slab_" .. subname .. "_quarter" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
 	})
 
 	minetest.register_node(":stairs:slab_" .. subname, {
@@ -657,6 +715,63 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 			fixed = {-0.5, 0, -0.5, 0.5, 0.5, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "stairsplus:slab_" .. subname .. "_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "stairsplus:slab_" .. subname .. "_quarter_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter_inverted")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
 	})
 	
 	minetest.register_node("stairsplus:slab_" .. subname .. "_wall", {
@@ -698,6 +813,84 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 			fixed = {-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "stairsplus:slab_" .. subname .. "_quarter" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("stairsplus:slab_" .. subname)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "stairsplus:slab_" .. subname then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "stairsplus:slab_" .. subname .. "_three_quarter" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
 	})
 
 	minetest.register_node("stairsplus:slab_" .. subname .. "_quarter_inverted", {
@@ -718,6 +911,84 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 			fixed = {-0.5, 0.25, -0.5, 0.5, 0.5, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "stairsplus:slab_" .. subname .. "_quarter_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_inverted")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "stairsplus:slab_" .. subname .. "_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("stairsplus:slab_" .. subname .. "_three_quarter_inverted")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "stairsplus:slab_" .. subname .. "_three_quarter_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
 	})
 
 	minetest.register_node("stairsplus:slab_" .. subname .. "_three_quarter", {
