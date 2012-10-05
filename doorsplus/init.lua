@@ -2,7 +2,6 @@
 ****
 Doors+
 by Calinou
-Version 12.06.29
 Licensed under WTFPL.
 ****
 --]]
