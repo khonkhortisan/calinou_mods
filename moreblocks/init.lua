@@ -1092,6 +1092,58 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 		},
 		sounds = default.node_sound_stone_defaults(),
 	})
+
+		minetest.register_node("moreblocks:stair_" .. subname .. "_right_half", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{0, -0.5, -0.5, 0.5, 0, 0.5},
+				{0, 0, 0, 0.5, 0.5, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{0, -0.5, -0.5, 0.5, 0, 0.5},
+				{0, 0, 0, 0.5, 0.5, 0.5},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+		minetest.register_node("moreblocks:stair_" .. subname .. "_right_half_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{0, 0, -0.5, 0.5, 0.5, 0.5},
+				{0, -0.5, 0, 0.5, 0, 0.5},
+			},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{0, 0, -0.5, 0.5, 0.5, 0.5},
+				{0, -0.5, 0, 0.5, 0, 0.5},
+			},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
 	
 		minetest.register_node("moreblocks:stair_" .. subname .. "_wall", {
 		description = description,
@@ -1380,6 +1432,48 @@ function moreblocks.register_stair(subname, recipeitem, groups, images, descript
 			{"moreblocks:stair_" .. subname .. "_half_inverted 1"},
 		},
 	})
+
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_right_half 2",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_half", "moreblocks:stair_" .. subname .. "_half"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_half 2",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_right_half", "moreblocks:stair_" .. subname .. "_right_half"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_right_half_inverted 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_right_half"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_right_half 1",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_right_half_inverted"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_half_inverted 2",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_right_half_inverted", "moreblocks:stair_" .. subname .. "_right_half_inverted"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:stair_" .. subname .. "_right_half_inverted 2",
+		recipe = {
+			{"moreblocks:stair_" .. subname .. "_half_inverted", "moreblocks:stair_" .. subname .. "_half_inverted"},
+		},
+	})
 	
 	minetest.register_craft({
 		output = "moreblocks:stair_" .. subname .. "_inner_inverted 1",
@@ -1474,6 +1568,63 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "moreblocks:slab_" .. subname then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "moreblocks:slab_" .. subname .. "_quarter" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
 	})
 
 	minetest.register_node(":stairs:slab_" .. subname, {
@@ -1514,6 +1665,63 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 			fixed = {-0.5, 0, -0.5, 0.5, 0.5, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "moreblocks:slab_" .. subname .. "_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "moreblocks:slab_" .. subname .. "_quarter_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter_inverted")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
 	})
 	
 	minetest.register_node("moreblocks:slab_" .. subname .. "_wall", {
@@ -1555,6 +1763,84 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 			fixed = {-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "moreblocks:slab_" .. subname .. "_quarter" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("moreblocks:slab_" .. subname)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "moreblocks:slab_" .. subname then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "moreblocks:slab_" .. subname .. "_three_quarter" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
 	})
 
 	minetest.register_node("moreblocks:slab_" .. subname .. "_quarter_inverted", {
@@ -1573,6 +1859,124 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, 0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" then
+				return itemstack
+			end
+
+			-- If it's being placed on an another similar one, replace it with
+			-- a full block
+			local slabpos = nil
+			local slabnode = nil
+			local p1 = pointed_thing.above
+			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
+			local n1 = minetest.env:get_node(p1)
+			if n1.name == "moreblocks:slab_" .. subname .. "_quarter_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_inverted")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "moreblocks:slab_" .. subname .. "_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter_inverted")
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+			
+			if n1.name == "moreblocks:slab_" .. subname .. "_three_quarter_inverted" then
+				slabpos = p1
+				slabnode = n1
+			end
+			if slabpos then
+				-- Remove the slab at slabpos
+				minetest.env:remove_node(slabpos)
+				-- Make a fake stack of a single item and try to place it
+				local fakestack = ItemStack(recipeitem)
+				pointed_thing.above = slabpos
+				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
+				-- If the item was taken from the fake stack, decrement original
+				if not fakestack or fakestack:is_empty() then
+					itemstack:take_item(1)
+				-- Else put old node back
+				else
+					minetest.env:set_node(slabpos, slabnode)
+				end
+				return itemstack
+			end
+
+			-- Otherwise place regularly
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		end,
+	})
+
+	minetest.register_node("moreblocks:slab_" .. subname .. "_three_quarter", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:slab_" .. drop .. "_three_quarter",
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0.25, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0.25, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	minetest.register_node("moreblocks:slab_" .. subname .. "_three_quarter_inverted", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = "moreblocks:slab_" .. drop .. "_three_quarter",
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.25, -0.5, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.25, -0.5, 0.5, 0.5, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
 	})
@@ -1656,6 +2060,37 @@ function moreblocks.register_slab(subname, recipeitem, groups, images, descripti
 		output = "moreblocks:slab_" .. subname .. "_quarter 1",
 		recipe = {
 			{"moreblocks:slab_" .. subname .. "_quarter_inverted"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:slab_" .. subname .. "_three_quarter_inverted 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_three_quarter"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = "moreblocks:slab_" .. subname .. "_three_quarter 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_three_quarter_inverted"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:slab_" .. subname .. "_three_quarter 1",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_quarter"},
+			{"moreblocks:slab_" .. subname .. "_quarter"},
+			{"moreblocks:slab_" .. subname .. "_quarter"},
+		},
+	})
+
+	minetest.register_craft({
+		output = "moreblocks:slab_" .. subname .. "_quarter 6",
+		recipe = {
+			{"moreblocks:slab_" .. subname .. "_three_quarter"},
+			{"moreblocks:slab_" .. subname .. "_three_quarter"},
 		},
 	})
 end
