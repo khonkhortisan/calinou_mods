@@ -2,7 +2,7 @@
 ****
 More Blocks
 by Calinou
-Licensed under the zlib/libpng license, see LICENSE.txt for info.
+Licensed under the zlib/libpng license for code and CC BY-SA 3.0 Unported for textures, see LICENSE.txt for info.
 ****
 --]]
 
