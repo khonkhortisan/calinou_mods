@@ -2,7 +2,7 @@
 ****
 More Blocks
 by Calinou
-Licensed under WTFPL.
+Licensed under the zlib/libpng license, see LICENSE.txt for info.
 ****
 --]]
 

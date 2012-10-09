@@ -5,14 +5,14 @@ Calinou's Mods for Minetest [http://minetest.net], a free and opensource Minecra
 
 This Git repository is mostly made for servers; it allows easy updating.
 
-To install, just clone this repository somewhere, then copy the "calinou_mods" folder in the "mods" folder of Minetest's installation folder.
+To install, just clone this repository somewhere, then copy the "calinou_mods" folder in the "mods/minetest" folder of Minetest's installation folder.
 
 
 
 Misc stuff
 =====================
 
-All mods but More Ores are under WTFPL license. More Ores is in GPLv3.
+All these mods, except More Ores are under the zlib/libpng license. More Ores is under the GNU GPLv3.
 
 Mods' forum threads:
 More Blocks: http://minetest.net/forum/viewtopic.php?id=509
