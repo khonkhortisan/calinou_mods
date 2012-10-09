@@ -12,7 +12,7 @@ To install, just clone this repository somewhere, then copy the "calinou_mods" f
 Misc stuff
 =====================
 
-All these mods, except More Ores are under the zlib/libpng license. More Ores is under the GNU GPLv3.
+All these mods' source codes, except More Ores are under the zlib/libpng license. More Ores is under the GNU GPLv3; the mods' textures are under the CC BY-SA 3.0 Unported.
 
 Mods' forum threads:
 More Blocks: http://minetest.net/forum/viewtopic.php?id=509
