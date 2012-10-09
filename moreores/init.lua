@@ -3,7 +3,7 @@
 More Ores
 by Calinou
 with the help of MarkTraceur, GloopMaster and Kotolegokot
-Licensed under GPLv3 or later, see: http://www.gnu.org/licenses/gpl-3.0.html
+Licensed under GPLv3 or later for code and zlib/libpng for textures, see: http://www.gnu.org/licenses/gpl-3.0.html
 ****
 --]]
 
