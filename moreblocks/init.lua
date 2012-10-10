@@ -1904,7 +1904,14 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("circlestonebrick", "more
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("plankstone", "moreblocks:plankstone",
 		{cracky=3},
-		{"moreblocks_plankstone.png"},
+		{
+			"moreblocks_plankstone.png",
+			"moreblocks_plankstone.png",
+			"moreblocks_plankstone.png",
+			"moreblocks_plankstone.png",
+			"moreblocks_plankstone_2.png",
+			"moreblocks_plankstone_2.png",
+		},
 		"Plankstone Stairs",
 		"Plankstone Slab",
 		"Plankstone Panel",
