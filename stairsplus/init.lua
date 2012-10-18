@@ -10,8 +10,8 @@ stairsplus = {}
 
 -- Node will be called stairsplus:stair_<subname>
 
-function stairsplus.register_stair(subname, recipeitem, groups, images, description, drop)
-		minetest.register_node("stairsplus:stair_" .. subname, {
+function stairsplus.register_stair(modname, subname, recipeitem, groups, images, description, drop)
+		minetest.register_node(modname .. ":stair_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -63,7 +63,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 
-		minetest.register_node("stairsplus:stair_" .. subname .. "_inverted", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -90,7 +90,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_half", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_half", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -116,7 +116,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_half_inverted", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_half_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -142,7 +142,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 
-		minetest.register_node("stairsplus:stair_" .. subname .. "_right_half", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_right_half", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -168,7 +168,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 
-		minetest.register_node("stairsplus:stair_" .. subname .. "_right_half_inverted", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_right_half_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -194,7 +194,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_wall", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_wall", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -221,7 +221,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_wall_half", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_wall_half", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -248,7 +248,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_wall_half_inverted", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_wall_half_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -276,7 +276,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_inner", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_inner", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -304,7 +304,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_outer", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_outer", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -331,7 +331,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_inner_inverted", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_inner_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -360,7 +360,7 @@ function stairsplus.register_stair(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-		minetest.register_node("stairsplus:stair_" .. subname .. "_outer_inverted", {
+		minetest.register_node(modname .. ":stair_" .. subname .. "_outer_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -598,8 +598,8 @@ end
 
 -- Node will be called stairsplus:slab_<subname>
 
-function stairsplus.register_slab(subname, recipeitem, groups, images, description, drop)
-	minetest.register_node("stairsplus:slab_" .. subname, {
+function stairsplus.register_slab(modname, subname, recipeitem, groups, images, description, drop)
+	minetest.register_node(modname .. ":slab_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -696,7 +696,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-	minetest.register_node("stairsplus:slab_" .. subname .. "_inverted", {
+	minetest.register_node(modname .. ":slab_" .. subname .. "_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -773,7 +773,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		end,
 	})
 	
-	minetest.register_node("stairsplus:slab_" .. subname .. "_wall", {
+	minetest.register_node(modname .. ":slab_" .. subname .. "_wall", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -794,7 +794,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		sounds = default.node_sound_stone_defaults(),
 	})
 
-	minetest.register_node("stairsplus:slab_" .. subname .. "_quarter", {
+	minetest.register_node(modname .. ":slab_" .. subname .. "_quarter", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -892,7 +892,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		end,
 	})
 
-	minetest.register_node("stairsplus:slab_" .. subname .. "_quarter_inverted", {
+	minetest.register_node(modname .. ":slab_" .. subname .. "_quarter_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -990,7 +990,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		end,
 	})
 
-	minetest.register_node("stairsplus:slab_" .. subname .. "_three_quarter", {
+	minetest.register_node(modname .. ":slab_" .. subname .. "_three_quarter", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -1010,7 +1010,7 @@ function stairsplus.register_slab(subname, recipeitem, groups, images, descripti
 		sounds = default.node_sound_stone_defaults(),
 	})
 
-	minetest.register_node("stairsplus:slab_" .. subname .. "_three_quarter_inverted", {
+	minetest.register_node(modname .. ":slab_" .. subname .. "_three_quarter_inverted", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -1146,8 +1146,8 @@ end
 
 -- Node will be called stairsplus:panel_<subname>
 
-function stairsplus.register_panel(subname, recipeitem, groups, images, description, drop)
-	minetest.register_node("stairsplus:panel_" .. subname .. "_bottom", {
+function stairsplus.register_panel(modname, subname, recipeitem, groups, images, description, drop)
+	minetest.register_node(modname .. ":panel_" .. subname .. "_bottom", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -1168,7 +1168,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-	minetest.register_node("stairsplus:panel_" .. subname .. "_top", {
+	minetest.register_node(modname .. ":panel_" .. subname .. "_top", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -1189,7 +1189,7 @@ function stairsplus.register_panel(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-	minetest.register_node("stairsplus:panel_" .. subname .. "_vertical", {
+	minetest.register_node(modname .. ":panel_" .. subname .. "_vertical", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -1257,8 +1257,8 @@ end
 
 -- Node will be called stairsplus:micro_<subname>
 
-function stairsplus.register_micro(subname, recipeitem, groups, images, description, drop)
-	minetest.register_node("stairsplus:micro_" .. subname .. "_bottom", {
+function stairsplus.register_micro(modname, subname, recipeitem, groups, images, description, drop)
+	minetest.register_node(modname .. ":micro_" .. subname .. "_bottom", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -1279,7 +1279,7 @@ function stairsplus.register_micro(subname, recipeitem, groups, images, descript
 		sounds = default.node_sound_stone_defaults(),
 	})
 	
-	minetest.register_node("stairsplus:micro_" .. subname .. "_top", {
+	minetest.register_node(modname .. ":micro_" .. subname .. "_top", {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
@@ -1324,14 +1324,14 @@ function stairsplus.register_micro(subname, recipeitem, groups, images, descript
 end
 
 -- Nodes will be called stairsplus:{stair,slab,panel,micro}_<subname>
-function stairsplus.register_stair_and_slab_and_panel_and_micro(subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop)
-	stairsplus.register_stair(subname, recipeitem, groups, images, desc_stair, drop)
-	stairsplus.register_slab(subname, recipeitem, groups, images, desc_slab, drop)
-	stairsplus.register_panel(subname, recipeitem, groups, images, desc_panel, drop)
-	stairsplus.register_micro(subname, recipeitem, groups, images, desc_micro, drop)
+function stairsplus.register_stair_and_slab_and_panel_and_micro(modname, subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop)
+	stairsplus.register_stair(modname, subname, recipeitem, groups, images, desc_stair, drop)
+	stairsplus.register_slab(modname, subname, recipeitem, groups, images, desc_slab, drop)
+	stairsplus.register_panel(modname, subname, recipeitem, groups, images, desc_panel, drop)
+	stairsplus.register_micro(modname, subname, recipeitem, groups, images, desc_micro, drop)
 end
 
-stairsplus.register_stair_and_slab_and_panel_and_micro("wood", "default:wood",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "wood", "default:wood",
 		{snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_wood.png"},
 		"Wooden Stairs",
@@ -1340,7 +1340,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("wood", "default:wood",
 		"Wooden Microblock",
 		"wood")
 
-stairsplus.register_stair_and_slab_and_panel_and_micro("stone", "default:stone",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "stone", "default:stone",
 		{cracky=3},
 		{"default_stone.png"},
 		"Stone Stairs",
@@ -1349,7 +1349,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stone", "default:stone",
 		"Stone Microblock",
 		"cobble")
 
-stairsplus.register_stair_and_slab_and_panel_and_micro("cobble", "default:cobble",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "cobble", "default:cobble",
 		{cracky=3},
 		{"default_cobble.png"},
 		"Cobblestone Stairs",
@@ -1358,7 +1358,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("cobble", "default:cobble
 		"Cobblestone Microblock",
 		"cobble")
 		
-stairsplus.register_stair_and_slab_and_panel_and_micro("mossycobble", "default:mossycobble",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "mossycobble", "default:mossycobble",
 		{cracky=3},
 		{"default_mossycobble.png"},
 		"Mossy Cobblestone Stairs",
@@ -1367,7 +1367,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("mossycobble", "default:m
 		"Mossy Cobblestone Microblock",
 		"mossycobble")
 
-stairsplus.register_stair_and_slab_and_panel_and_micro("brick", "default:brick",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "brick", "default:brick",
 		{cracky=3},
 		{"default_brick.png"},
 		"Brick Stairs",
@@ -1376,7 +1376,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("brick", "default:brick",
 		"Brick Microblock",
 		"brick")
 
-stairsplus.register_stair_and_slab_and_panel_and_micro("sandstone", "default:sandstone",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "sandstone", "default:sandstone",
 		{crumbly=2,cracky=2},
 		{"default_sandstone.png"},
 		"Sandstone Stairs",
@@ -1385,7 +1385,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("sandstone", "default:san
 		"Sandstone Microblock",
 		"sandstone")
 		
-stairsplus.register_stair_and_slab_and_panel_and_micro("steelblock", "default:steelblock",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "steelblock", "default:steelblock",
 		{snappy=1,bendy=2,cracky=1,melty=2,level=2},
 		{"default_steel_block.png"},
 		"Steel Block Stairs",
@@ -1394,7 +1394,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("steelblock", "default:st
 		"Steel Microblock",
 		"steelblock")
 		
-stairsplus.register_stair_and_slab_and_panel_and_micro("desert_stone", "default:desert_stone",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "desert_stone", "default:desert_stone",
 		{cracky=3},
 		{"default_desert_stone.png"},
 		"Desert Stone Stairs",
@@ -1403,7 +1403,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("desert_stone", "default:
 		"Desert Stone Microblock",
 		"desert_stone")
 		
-stairsplus.register_stair_and_slab_and_panel_and_micro("glass", "default:glass",
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "glass", "default:glass",
 		{snappy=2,cracky=3,oddly_breakable_by_hand=3},
 		{"default_glass.png"},
 		"Glass Stairs",
