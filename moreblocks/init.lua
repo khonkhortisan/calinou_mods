@@ -1018,7 +1018,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop,
+		drop = modname .. ":stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1149,7 +1149,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop,
+		drop = modname .. ":stair_" .. drop,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1176,7 +1176,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop .. "_wall_half",
+		drop = modname .. ":stair_" .. drop .. "_wall_half",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1203,7 +1203,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop .. "_wall_half",
+		drop = modname .. ":stair_" .. drop .. "_wall_half",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1231,7 +1231,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop .. "_inner",
+		drop = modname .. ":stair_" .. drop .. "_inner",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
@@ -1259,7 +1259,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop .. "_outer",
+		drop = modname .. ":stair_" .. drop .. "_outer",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1286,7 +1286,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop .. "_inner",
+		drop = modname .. ":stair_" .. drop .. "_inner",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1315,7 +1315,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:stair_" .. drop .. "_outer",
+		drop = modname .. ":stair_" .. drop .. "_outer",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1339,7 +1339,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. " 8",
+		output = modname .. ":stair_" .. subname .. " 8",
 		recipe = {
 			{recipeitem, "", ""},
 			{recipeitem, recipeitem, ""},
@@ -1348,7 +1348,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. " 8",
+		output = modname .. ":stair_" .. subname .. " 8",
 		recipe = {
 			{"", "", recipeitem},
 			{"", recipeitem, recipeitem},
@@ -1357,7 +1357,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall 8",
+		output = modname .. ":stair_" .. subname .. "_wall 8",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 			{recipeitem, recipeitem, ""},
@@ -1366,7 +1366,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall 8",
+		output = modname .. ":stair_" .. subname .. "_wall 8",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 			{"", recipeitem, recipeitem},
@@ -1375,174 +1375,174 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall 2",
+		output = modname .. ":stair_" .. subname .. "_wall 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname, "moreblocks:stair_" .. subname},
+			{modname .. ":stair_" .. subname, modname .. ":stair_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall 2",
+		output = modname .. ":stair_" .. subname .. "_wall 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_inverted", "moreblocks:stair_" .. subname .. "_inverted"},
+			{modname .. ":stair_" .. subname .. "_inverted", modname .. ":stair_" .. subname .. "_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. " 2",
+		output = modname .. ":stair_" .. subname .. " 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_wall"},
-			{"moreblocks:stair_" .. subname .. "_wall"},
+			{modname .. ":stair_" .. subname .. "_wall"},
+			{modname .. ":stair_" .. subname .. "_wall"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_inner 1",
+		output = modname .. ":stair_" .. subname .. "_inner 1",
 		recipe = {
-			{"moreblocks:micro_" .. subname .. "_bottom", "moreblocks:stair_" .. subname},
+			{modname .. ":micro_" .. subname .. "_bottom", modname .. ":stair_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_outer 1",
+		output = modname .. ":stair_" .. subname .. "_outer 1",
 		recipe = {
-			{"moreblocks:micro_" .. subname .. "_bottom"},
-			{"moreblocks:slab_" .. subname},
+			{modname .. ":micro_" .. subname .. "_bottom"},
+			{modname .. ":slab_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_half 1",
+		output = modname .. ":stair_" .. subname .. "_half 1",
 		recipe = {
-			{"moreblocks:micro_" .. subname .. "_bottom"},
-			{"moreblocks:panel_" .. subname .. "_bottom"},
+			{modname .. ":micro_" .. subname .. "_bottom"},
+			{modname .. ":panel_" .. subname .. "_bottom"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_half_inverted 1",
+		output = modname .. ":stair_" .. subname .. "_half_inverted 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_half 1"},
+			{modname .. ":stair_" .. subname .. "_half 1"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_half 1",
+		output = modname .. ":stair_" .. subname .. "_half 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_half_inverted 1"},
+			{modname .. ":stair_" .. subname .. "_half_inverted 1"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_right_half 2",
+		output = modname .. ":stair_" .. subname .. "_right_half 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_half", "moreblocks:stair_" .. subname .. "_half"},
+			{modname .. ":stair_" .. subname .. "_half", modname .. ":stair_" .. subname .. "_half"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_half 2",
+		output = modname .. ":stair_" .. subname .. "_half 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_right_half", "moreblocks:stair_" .. subname .. "_right_half"},
+			{modname .. ":stair_" .. subname .. "_right_half", modname .. ":stair_" .. subname .. "_right_half"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_right_half_inverted 1",
+		output = modname .. ":stair_" .. subname .. "_right_half_inverted 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_right_half"},
+			{modname .. ":stair_" .. subname .. "_right_half"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_right_half 1",
+		output = modname .. ":stair_" .. subname .. "_right_half 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_right_half_inverted"},
+			{modname .. ":stair_" .. subname .. "_right_half_inverted"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_half_inverted 2",
+		output = modname .. ":stair_" .. subname .. "_half_inverted 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_right_half_inverted", "moreblocks:stair_" .. subname .. "_right_half_inverted"},
+			{modname .. ":stair_" .. subname .. "_right_half_inverted", modname .. ":stair_" .. subname .. "_right_half_inverted"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_right_half_inverted 2",
+		output = modname .. ":stair_" .. subname .. "_right_half_inverted 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_half_inverted", "moreblocks:stair_" .. subname .. "_half_inverted"},
+			{modname .. ":stair_" .. subname .. "_half_inverted", modname .. ":stair_" .. subname .. "_half_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_inner_inverted 1",
+		output = modname .. ":stair_" .. subname .. "_inner_inverted 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_inner"},
+			{modname .. ":stair_" .. subname .. "_inner"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_outer_inverted 1",
+		output = modname .. ":stair_" .. subname .. "_outer_inverted 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_outer"},
+			{modname .. ":stair_" .. subname .. "_outer"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_inner 1",
+		output = modname .. ":stair_" .. subname .. "_inner 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_inner_inverted"},
+			{modname .. ":stair_" .. subname .. "_inner_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_outer 1",
+		output = modname .. ":stair_" .. subname .. "_outer 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_outer_inverted"},
+			{modname .. ":stair_" .. subname .. "_outer_inverted"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall_half 2",
+		output = modname .. ":stair_" .. subname .. "_wall_half 2",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_wall"},
+			{modname .. ":stair_" .. subname .. "_wall"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall 1",
+		output = modname .. ":stair_" .. subname .. "_wall 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_wall_half"},
-			{"moreblocks:stair_" .. subname .. "_wall_half"},
+			{modname .. ":stair_" .. subname .. "_wall_half"},
+			{modname .. ":stair_" .. subname .. "_wall_half"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall_half_inverted 1",
+		output = modname .. ":stair_" .. subname .. "_wall_half_inverted 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_wall_half"},
+			{modname .. ":stair_" .. subname .. "_wall_half"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_wall_half 1",
+		output = modname .. ":stair_" .. subname .. "_wall_half 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_wall_half_inverted"},
+			{modname .. ":stair_" .. subname .. "_wall_half_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. "_inverted 1",
+		output = modname .. ":stair_" .. subname .. "_inverted 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname},
+			{modname .. ":stair_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:stair_" .. subname .. " 1",
+		output = modname .. ":stair_" .. subname .. " 1",
 		recipe = {
-			{"moreblocks:stair_" .. subname .. "_inverted"},
+			{modname .. ":stair_" .. subname .. "_inverted"},
 		},
 	})
 end
@@ -1554,7 +1554,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop,
+		drop = modname .. ":slab_" .. drop,
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
@@ -1580,7 +1580,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
 			local n1 = minetest.env:get_node(p1)
-			if n1.name == "moreblocks:slab_" .. subname then
+			if n1.name == modname .. ":slab_" .. subname then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1601,7 +1601,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				return itemstack
 			end
 			
-			if n1.name == "moreblocks:slab_" .. subname .. "_quarter" then
+			if n1.name == modname .. ":slab_" .. subname .. "_quarter" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1609,7 +1609,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				-- Remove the slab at slabpos
 				minetest.env:remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter")
+				local fakestack = ItemStack(modname .. ":slab_" .. subname .. "_three_quarter")
 				pointed_thing.above = slabpos
 				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
 				-- If the item was taken from the fake stack, decrement original
@@ -1631,7 +1631,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop,
+		drop = modname .. ":slab_" .. drop,
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
@@ -1651,7 +1651,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop .. "_inverted",
+		drop = modname .. ":slab_" .. drop .. "_inverted",
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
@@ -1677,7 +1677,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
 			local n1 = minetest.env:get_node(p1)
-			if n1.name == "moreblocks:slab_" .. subname .. "_inverted" then
+			if n1.name == modname .. ":slab_" .. subname .. "_inverted" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1698,7 +1698,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				return itemstack
 			end
 			
-			if n1.name == "moreblocks:slab_" .. subname .. "_quarter_inverted" then
+			if n1.name == modname .. ":slab_" .. subname .. "_quarter_inverted" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1706,7 +1706,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				-- Remove the slab at slabpos
 				minetest.env:remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter_inverted")
+				local fakestack = ItemStack(modname .. ":slab_" .. subname .. "_three_quarter_inverted")
 				pointed_thing.above = slabpos
 				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
 				-- If the item was taken from the fake stack, decrement original
@@ -1728,7 +1728,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop .. "_wall",
+		drop = modname .. ":slab_" .. drop .. "_wall",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -1749,7 +1749,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop .. "_quarter",
+		drop = modname .. ":slab_" .. drop .. "_quarter",
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
@@ -1775,7 +1775,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y - 1, z = p1.z}
 			local n1 = minetest.env:get_node(p1)
-			if n1.name == "moreblocks:slab_" .. subname .. "_quarter" then
+			if n1.name == modname .. ":slab_" .. subname .. "_quarter" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1783,7 +1783,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				-- Remove the slab at slabpos
 				minetest.env:remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack("moreblocks:slab_" .. subname)
+				local fakestack = ItemStack(modname .. ":slab_" .. subname)
 				pointed_thing.above = slabpos
 				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
 				-- If the item was taken from the fake stack, decrement original
@@ -1796,7 +1796,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				return itemstack
 			end
 			
-			if n1.name == "moreblocks:slab_" .. subname then
+			if n1.name == modname .. ":slab_" .. subname then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1804,7 +1804,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				-- Remove the slab at slabpos
 				minetest.env:remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter")
+				local fakestack = ItemStack(modname .. ":slab_" .. subname .. "_three_quarter")
 				pointed_thing.above = slabpos
 				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
 				-- If the item was taken from the fake stack, decrement original
@@ -1817,7 +1817,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				return itemstack
 			end
 			
-			if n1.name == "moreblocks:slab_" .. subname .. "_three_quarter" then
+			if n1.name == modname .. ":slab_" .. subname .. "_three_quarter" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1847,7 +1847,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop .. "_quarter",
+		drop = modname .. ":slab_" .. drop .. "_quarter",
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
@@ -1873,7 +1873,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 			local p1 = pointed_thing.above
 			p1 = {x = p1.x, y = p1.y + 1, z = p1.z}
 			local n1 = minetest.env:get_node(p1)
-			if n1.name == "moreblocks:slab_" .. subname .. "_quarter_inverted" then
+			if n1.name == modname .. ":slab_" .. subname .. "_quarter_inverted" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1881,7 +1881,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				-- Remove the slab at slabpos
 				minetest.env:remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_inverted")
+				local fakestack = ItemStack(modname .. ":slab_" .. subname .. "_inverted")
 				pointed_thing.above = slabpos
 				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
 				-- If the item was taken from the fake stack, decrement original
@@ -1894,7 +1894,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				return itemstack
 			end
 			
-			if n1.name == "moreblocks:slab_" .. subname .. "_inverted" then
+			if n1.name == modname .. ":slab_" .. subname .. "_inverted" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1902,7 +1902,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				-- Remove the slab at slabpos
 				minetest.env:remove_node(slabpos)
 				-- Make a fake stack of a single item and try to place it
-				local fakestack = ItemStack("moreblocks:slab_" .. subname .. "_three_quarter_inverted")
+				local fakestack = ItemStack(modname .. ":slab_" .. subname .. "_three_quarter_inverted")
 				pointed_thing.above = slabpos
 				fakestack = minetest.item_place(fakestack, placer, pointed_thing)
 				-- If the item was taken from the fake stack, decrement original
@@ -1915,7 +1915,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 				return itemstack
 			end
 			
-			if n1.name == "moreblocks:slab_" .. subname .. "_three_quarter_inverted" then
+			if n1.name == modname .. ":slab_" .. subname .. "_three_quarter_inverted" then
 				slabpos = p1
 				slabnode = n1
 			end
@@ -1945,7 +1945,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop .. "_three_quarter",
+		drop = modname .. ":slab_" .. drop .. "_three_quarter",
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
@@ -1965,7 +1965,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:slab_" .. drop .. "_three_quarter",
+		drop = modname .. ":slab_" .. drop .. "_three_quarter",
 		paramtype = "light",
 		sunlight_propagates = true,
 		is_ground_content = true,
@@ -1982,14 +1982,14 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. " 6",
+		output = modname .. ":slab_" .. subname .. " 6",
 		recipe = {
 			{recipeitem, recipeitem, recipeitem},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_wall 6",
+		output = modname .. ":slab_" .. subname .. "_wall 6",
 		recipe = {
 			{recipeitem},
 			{recipeitem},
@@ -1998,99 +1998,99 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_inverted 1",
+		output = modname .. ":slab_" .. subname .. "_inverted 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname},
+			{modname .. ":slab_" .. subname},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. " 1",
+		output = modname .. ":slab_" .. subname .. " 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_inverted"},
+			{modname .. ":slab_" .. subname .. "_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
 		output = recipeitem .. " 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname},
-			{"moreblocks:slab_" .. subname},
+			{modname .. ":slab_" .. subname},
+			{modname .. ":slab_" .. subname},
 		},
 	})
 
 	minetest.register_craft({
 		output = recipeitem .. " 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_inverted"},
-			{"moreblocks:slab_" .. subname .. "_inverted"},
+			{modname .. ":slab_" .. subname .. "_inverted"},
+			{modname .. ":slab_" .. subname .. "_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
 		output = recipeitem .. " 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_wall", "moreblocks:slab_" .. subname .. "_wall"},
+			{modname .. ":slab_" .. subname .. "_wall", modname .. ":slab_" .. subname .. "_wall"},
 		},
 	})
 	
 	minetest.register_craft({
 		output = recipeitem,
 		recipe = {
-			{"moreblocks:slab_" .. subname},
-			{"moreblocks:slab_" .. subname},
+			{modname .. ":slab_" .. subname},
+			{modname .. ":slab_" .. subname},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_quarter 6",
+		output = modname .. ":slab_" .. subname .. "_quarter 6",
 		recipe = {
-			{"moreblocks:slab_" .. subname, "moreblocks:slab_" .. subname, "moreblocks:slab_" .. subname},
+			{modname .. ":slab_" .. subname, modname .. ":slab_" .. subname, modname .. ":slab_" .. subname},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_quarter_inverted 1",
+		output = modname .. ":slab_" .. subname .. "_quarter_inverted 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_quarter"},
+			{modname .. ":slab_" .. subname .. "_quarter"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_quarter 1",
+		output = modname .. ":slab_" .. subname .. "_quarter 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_quarter_inverted"},
+			{modname .. ":slab_" .. subname .. "_quarter_inverted"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_three_quarter_inverted 1",
+		output = modname .. ":slab_" .. subname .. "_three_quarter_inverted 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_three_quarter"},
+			{modname .. ":slab_" .. subname .. "_three_quarter"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_three_quarter 1",
+		output = modname .. ":slab_" .. subname .. "_three_quarter 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_three_quarter_inverted"},
+			{modname .. ":slab_" .. subname .. "_three_quarter_inverted"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_three_quarter 1",
+		output = modname .. ":slab_" .. subname .. "_three_quarter 1",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_quarter"},
-			{"moreblocks:slab_" .. subname .. "_quarter"},
-			{"moreblocks:slab_" .. subname .. "_quarter"},
+			{modname .. ":slab_" .. subname .. "_quarter"},
+			{modname .. ":slab_" .. subname .. "_quarter"},
+			{modname .. ":slab_" .. subname .. "_quarter"},
 		},
 	})
 
 	minetest.register_craft({
-		output = "moreblocks:slab_" .. subname .. "_quarter 6",
+		output = modname .. ":slab_" .. subname .. "_quarter 6",
 		recipe = {
-			{"moreblocks:slab_" .. subname .. "_three_quarter"},
-			{"moreblocks:slab_" .. subname .. "_three_quarter"},
+			{modname .. ":slab_" .. subname .. "_three_quarter"},
+			{modname .. ":slab_" .. subname .. "_three_quarter"},
 		},
 	})
 end
@@ -2102,7 +2102,7 @@ function moreblocks.register_panel(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:panel_" .. drop .. "_bottom",
+		drop = modname .. ":panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -2123,7 +2123,7 @@ function moreblocks.register_panel(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:panel_" .. drop .. "_bottom",
+		drop = modname .. ":panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -2144,7 +2144,7 @@ function moreblocks.register_panel(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:panel_" .. drop .. "_bottom",
+		drop = modname .. ":panel_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -2162,14 +2162,14 @@ function moreblocks.register_panel(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:panel_" .. subname .. "_bottom 8",
+		output = modname .. ":panel_" .. subname .. "_bottom 8",
 		recipe = {
 			{recipeitem, recipeitem},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:panel_" .. subname .. "_vertical 8",
+		output = modname .. ":panel_" .. subname .. "_vertical 8",
 		recipe = {
 			{recipeitem},
 			{recipeitem},
@@ -2177,31 +2177,31 @@ function moreblocks.register_panel(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:panel_" .. subname .. "_top 1",
+		output = modname .. ":panel_" .. subname .. "_top 1",
 		recipe = {
-			{"moreblocks:panel_" .. subname .. "_bottom"},
+			{modname .. ":panel_" .. subname .. "_bottom"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:panel_" .. subname .. "_bottom 1",
+		output = modname .. ":panel_" .. subname .. "_bottom 1",
 		recipe = {
-			{"moreblocks:panel_" .. subname .. "_top"},
+			{modname .. ":panel_" .. subname .. "_top"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:panel_" .. subname .. "_vertical 2",
+		output = modname .. ":panel_" .. subname .. "_vertical 2",
 		recipe = {
-			{"moreblocks:panel_" .. subname .. "_bottom"},
-			{"moreblocks:panel_" .. subname .. "_bottom"},
+			{modname .. ":panel_" .. subname .. "_bottom"},
+			{modname .. ":panel_" .. subname .. "_bottom"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:panel_" .. subname .. "_bottom 2",
+		output = modname .. ":panel_" .. subname .. "_bottom 2",
 		recipe = {
-			{"moreblocks:panel_" .. subname .. "_vertical", "moreblocks:panel_" .. subname .. "_vertical"},
+			{modname .. ":panel_" .. subname .. "_vertical", modname .. ":panel_" .. subname .. "_vertical"},
 		},
 	})
 end
@@ -2213,7 +2213,7 @@ function moreblocks.register_micro(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:micro_" .. drop .. "_bottom",
+		drop = modname .. ":micro_" .. drop .. "_bottom",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -2234,7 +2234,7 @@ function moreblocks.register_micro(modname, subname, recipeitem, groups, images,
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
-		drop = "moreblocks:micro_" .. drop .. "_top",
+		drop = modname .. ":micro_" .. drop .. "_top",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
@@ -2252,7 +2252,7 @@ function moreblocks.register_micro(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:micro_" .. subname .. "_bottom 8",
+		output = modname .. ":micro_" .. subname .. "_bottom 8",
 		recipe = {
 			{"default:stick"},
 			{recipeitem},
@@ -2260,16 +2260,16 @@ function moreblocks.register_micro(modname, subname, recipeitem, groups, images,
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:micro_" .. subname .. "_top 1",
+		output = modname .. ":micro_" .. subname .. "_top 1",
 		recipe = {
-			{"moreblocks:micro_" .. subname .. "_bottom"},
+			{modname .. ":micro_" .. subname .. "_bottom"},
 		},
 	})
 	
 	minetest.register_craft({
-		output = "moreblocks:micro_" .. subname .. "_bottom 1",
+		output = modname .. ":micro_" .. subname .. "_bottom 1",
 		recipe = {
-			{"moreblocks:micro_" .. subname .. "_top"},
+			{modname .. ":micro_" .. subname .. "_top"},
 		},
 	})
 end
