@@ -596,7 +596,7 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Node will be called stairsplus:slab_<subname>
+-- Node will be called <modname>slab_<subname>
 
 function stairsplus.register_slab(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":slab_" .. subname, {
@@ -1144,7 +1144,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 end
 
--- Node will be called stairsplus:panel_<subname>
+-- Node will be called <modname>panel_<subname>
 
 function stairsplus.register_panel(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":panel_" .. subname .. "_bottom", {
@@ -1255,7 +1255,7 @@ function stairsplus.register_panel(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Node will be called stairsplus:micro_<subname>
+-- Node will be called <modname>micro_<subname>
 
 function stairsplus.register_micro(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":micro_" .. subname .. "_bottom", {
@@ -1323,7 +1323,7 @@ function stairsplus.register_micro(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Nodes will be called stairsplus:{stair,slab,panel,micro}_<subname>
+-- Nodes will be called <modname>:{stair,slab,panel,micro}_<subname>
 function stairsplus.register_stair_and_slab_and_panel_and_micro(modname, subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop)
 	stairsplus.register_stair(modname, subname, recipeitem, groups, images, desc_stair, drop)
 	stairsplus.register_slab(modname, subname, recipeitem, groups, images, desc_slab, drop)
