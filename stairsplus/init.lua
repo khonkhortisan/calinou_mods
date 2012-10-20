@@ -284,6 +284,7 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = true,
+		sunlight_propagates = true,
 		groups = groups,
 		node_box = {
 			type = "fixed",
