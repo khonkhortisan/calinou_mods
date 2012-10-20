@@ -959,7 +959,7 @@ minetest.register_craftitem("moreblocks:junglestick", {
 
 moreblocks = {}
 
--- Node will be called moreblocks:stair_<subname>
+-- Node will be called <modname>:stair_<subname>
 
 function moreblocks.register_stair(modname, subname, recipeitem, groups, images, description, drop)
 		minetest.register_node(modname .. ":stair_" .. subname, {
@@ -1547,7 +1547,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Node will be called moreblocks:slab_<subname>
+-- Node will be called <modname>:slab_<subname>
 
 function moreblocks.register_slab(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":slab_" .. subname, {
@@ -2095,7 +2095,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 end
 
--- Node will be called moreblocks:panel_<subname>
+-- Node will be called <modname>:panel_<subname>
 
 function moreblocks.register_panel(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":panel_" .. subname .. "_bottom", {
@@ -2206,7 +2206,7 @@ function moreblocks.register_panel(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Node will be called moreblocks:micro_<subname>
+-- Node will be called <modname>:micro_<subname>
 
 function moreblocks.register_micro(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":micro_" .. subname .. "_bottom", {
@@ -2274,7 +2274,7 @@ function moreblocks.register_micro(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Nodes will be called moreblocks:{stair,slab,panel,micro}_<subname>
+-- Nodes will be called <modname>:{stair,slab,panel,micro}_<subname>
 function moreblocks.register_stair_and_slab_and_panel_and_micro(modname, subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop)
 	moreblocks.register_stair(modname, subname, recipeitem, groups, images, desc_stair, drop)
 	moreblocks.register_slab(modname, subname, recipeitem, groups, images, desc_slab, drop)
