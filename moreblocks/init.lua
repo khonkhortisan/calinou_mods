@@ -328,26 +328,26 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:stonebrick 4",
 	recipe = {
-		{"stone", "stone"},
-		{"stone", "stone"},
+		{"default:stone", "default:stone"},
+		{"default:stone", "default:stone"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:circlestonebrick 8",
 	recipe = {
-		{"stone", "stone", "stone"},
-		{"stone", "", "stone"},
-		{"stone", "stone", "stone"},
+		{"default:stone", "default:stone", "default:stone"},
+		{"default:stone", "", "default:stone"},
+		{"default:stone", "default:stone", "default:stone"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:allfacestree 8",
 	recipe = {
-		{"tree", "tree", "tree"},
-		{"tree", "", "tree"},
-		{"tree", "tree", "tree"},
+		{"default:tree", "default:tree", "default:tree"},
+		{"default:tree", "", "default:tree"},
+		{"default:tree", "default:tree", "default:tree"},
 	}
 })
 
@@ -407,40 +407,40 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:plankstone 4",
 	recipe = {
-		{"stone", "wood"},
-		{"wood", "stone"},
+		{"default:stone", "default:wood"},
+		{"default:wood", "default:stone"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:plankstone 4",
 	recipe = {
-		{"wood", "stone"},
-		{"stone", "wood"},
+		{"default:wood", "default:stone"},
+		{"default:stone", "default:wood"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:coalchecker 4",
 	recipe = {
-		{"stone", "lump_of_coal"},
-		{"lump_of_coal", "stone"},
+		{"default:stone", "lump_of_coal"},
+		{"lump_of_coal", "default:stone"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:coalchecker 4",
 	recipe = {
-		{"lump_of_coal", "stone"},
-		{"stone", "lump_of_coal"},
+		{"lump_of_coal", "default:stone"},
+		{"default:stone", "lump_of_coal"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:ironchecker 4",
 	recipe = {
-		{"steel_ingot", "stone"},
-		{"stone", "steel_ingot"},
+		{"steel_ingot", "default:stone"},
+		{"default:stone", "steel_ingot"},
 	}
 })
 
@@ -455,8 +455,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:ironchecker 4",
 	recipe = {
-		{"stone", "steel_ingot"},
-		{"steel_ingot", "stone"},
+		{"default:stone", "steel_ingot"},
+		{"steel_ingot", "default:stone"},
 	}
 })
 
@@ -464,7 +464,7 @@ minetest.register_craft({
 	output = "moreblocks:ironglass 1",
 	recipe = {
 		{"steel_ingot"},
-		{"glass"},
+		{"default:glass"},
 	}
 })
 
@@ -472,39 +472,39 @@ minetest.register_craft({
 	output = "moreblocks:coalglass 1",
 	recipe = {
 		{"lump_of_coal"},
-		{"glass"},
+		{"default:glass"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:cleanglass 1",
 	type = "shapeless",
-	recipe = {"moreblocks:sweeper", "glass"},
+	recipe = {"moreblocks:sweeper", "default:glass"},
 })
 
 minetest.register_craft({
 	output = "moreblocks:glowglass 1",
 	type = "shapeless",
-	recipe = {"torch", "glass"},
+	recipe = {"torch", "default:glass"},
 })
 
 minetest.register_craft({
 	output = "moreblocks:superglowglass 1",
 	type = "shapeless",
-	recipe = {"torch", "torch", "glass"},
+	recipe = {"torch", "torch", "default:glass"},
 })
 
 minetest.register_craft({
 	output = "moreblocks:coalstone 1",
 	type = "shapeless",
-	recipe = {"lump_of_coal", "stone"},
+	recipe = {"lump_of_coal", "default:stone"},
 })
 
 minetest.register_craft({
 	output = "moreblocks:trapstone 12",
 	recipe = {
 		{"mese"},
-		{"stone"},
+		{"default:stone"},
 	}
 })
 
@@ -512,14 +512,14 @@ minetest.register_craft({
 	output = "moreblocks:trapglass 12",
 	recipe = {
 		{"mese"},
-		{"glass"},
+		{"default:glass"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:ironstone 1",
 	type = "shapeless",
-	recipe = {"lump_of_iron", "stone"},
+	recipe = {"lump_of_iron", "default:stone"},
 })
 
 minetest.register_craft({
@@ -533,16 +533,16 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:cactuschecker 4",
 	recipe = {
-		{"cactus", "stone"},
-		{"stone", "cactus"},
+		{"cactus", "default:stone"},
+		{"default:stone", "cactus"},
 	}
 })
 
 minetest.register_craft({
 	output = "moreblocks:cactuschecker 4",
 	recipe = {
-		{"stone", "cactus"},
-		{"cactus", "stone"},
+		{"default:stone", "cactus"},
+		{"cactus", "default:stone"},
 	}
 })
 
@@ -619,12 +619,12 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "moreblocks:horizontaltree 2",
 	recipe = {
-		{"tree", "tree"},
+		{"default:tree", "default:tree"},
 	}
 })
 
 minetest.register_craft({
-	output = "tree 2",
+	output = "default:tree 2",
 	recipe = {
 		{"moreblocks:horizontaltree"},
 		{"moreblocks:horizontaltree"},
@@ -2283,87 +2283,6 @@ function moreblocks.register_stair_and_slab_and_panel_and_micro(modname, subname
 	moreblocks.register_micro(modname, subname, recipeitem, groups, images, desc_micro, drop)
 end
 
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "wood", "default:wood",
-		{snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		{"default_wood.png"},
-		"Wooden Stairs",
-		"Wooden Slab",
-		"Wooden Panel",
-		"Wooden Microblock",
-		"wood")
-
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stone", "default:stone",
-		{cracky=3},
-		{"default_stone.png"},
-		"Stone Stairs",
-		"Stone Slab",
-		"Stone Panel",
-		"Stone Microblock",
-		"cobble")
-
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "cobble", "default:cobble",
-		{cracky=3},
-		{"default_cobble.png"},
-		"Cobblestone Stairs",
-		"Cobblestone Slab",
-		"Cobblestone Panel",
-		"Cobblestone Microblock",
-		"cobble")
-		
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "mossycobble", "default:mossycobble",
-		{cracky=3},
-		{"default_mossycobble.png"},
-		"Mossy Cobblestone Stairs",
-		"Mossy Cobblestone Slab",
-		"Mossy Cobblestone Panel",
-		"Mossy Cobblestone Microblock",
-		"mossycobble")
-
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "brick", "default:brick",
-		{cracky=3},
-		{"default_brick.png"},
-		"Brick Stairs",
-		"Brick Slab",
-		"Brick Panel",
-		"Brick Microblock",
-		"brick")
-
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "sandstone", "default:sandstone",
-		{crumbly=2,cracky=2},
-		{"default_sandstone.png"},
-		"Sandstone Stairs",
-		"Sandstone Slab",
-		"Sandstone Panel",
-		"Sandstone Microblock",
-		"sandstone")
-		
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "steelblock", "default:steelblock",
-		{snappy=1,bendy=2,cracky=1,melty=2,level=2},
-		{"default_steel_block.png"},
-		"Steel Block Stairs",
-		"Steel Block Slab",
-		"Steel Block Panel",
-		"Steel Microblock",
-		"steelblock")
-		
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "desert_stone", "default:desert_stone",
-		{cracky=3},
-		{"default_desert_stone.png"},
-		"Desert Stone Stairs",
-		"Desert Stone Slab",
-		"Desert Stone Panel",
-		"Desert Stone Microblock",
-		"desert_stone")
-		
-moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "glass", "default:glass",
-		{snappy=2,cracky=3,oddly_breakable_by_hand=3},
-		{"default_glass.png"},
-		"Glass Stairs",
-		"Glass Slab",
-		"Glass Panel",
-		"Glass Microblock",
-		"glass")
-
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stonebrick", "moreblocks:stonebrick",
 		{cracky=3},
 		{"moreblocks_stonebrick.png"},
@@ -2471,3 +2390,46 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "ironstone"
 		"Iron Stone Panel",
 		"Iron Stone Microblock",
 		"ironstone")
+		
+-- Compatibility aliases
+
+minetest.register_alias("moreblocks:stair_stone", "stairsplus:stair_stone")
+minetest.register_alias("moreblocks:stair_cobble", "stairsplus:stair_cobble")
+minetest.register_alias("moreblocks:stair_wood", "stairsplus:stair_wood")
+minetest.register_alias("moreblocks:stair_sandstone", "stairsplus:stair_sandstone")
+minetest.register_alias("moreblocks:stair_brick", "stairsplus:stair_brick")
+minetest.register_alias("moreblocks:stair_desert_stone", "stairsplus:stair_desert_stone")
+minetest.register_alias("moreblocks:stair_glass", "stairsplus:stair_glass")
+minetest.register_alias("moreblocks:stair_mossycobble", "stairsplus:stair_mossycobble")
+minetest.register_alias("moreblocks:stair_steelblock", "stairsplus:stair_steelblock")
+
+minetest.register_alias("moreblocks:slab_stone", "stairsplus:slab_stone")
+minetest.register_alias("moreblocks:slab_cobble", "stairsplus:slab_cobble")
+minetest.register_alias("moreblocks:slab_wood", "stairsplus:slab_wood")
+minetest.register_alias("moreblocks:slab_sandstone", "stairsplus:slab_sandstone")
+minetest.register_alias("moreblocks:slab_brick", "stairsplus:slab_brick")
+minetest.register_alias("moreblocks:slab_desert_stone", "stairsplus:slab_desert_stone")
+minetest.register_alias("moreblocks:slab_glass", "stairsplus:slab_glass")
+minetest.register_alias("moreblocks:slab_mossycobble", "stairsplus:slab_mossycobble")
+minetest.register_alias("moreblocks:slab_steelblock", "stairsplus:slab_steelblock")
+
+minetest.register_alias("moreblocks:stair_stone_inverted", "stairsplus:stair_stone_inverted")
+minetest.register_alias("moreblocks:stair_cobble_inverted", "stairsplus:stair_cobble_inverted")
+minetest.register_alias("moreblocks:stair_wood_inverted", "stairsplus:stair_wood_inverted")
+minetest.register_alias("moreblocks:stair_sandstone_inverted", "stairsplus:stair_sandstone_inverted")
+minetest.register_alias("moreblocks:stair_brick_inverted", "stairsplus:stair_brick_inverted")
+minetest.register_alias("moreblocks:stair_desert_stone_inverted", "stairsplus:stair_desert_stone_inverted")
+minetest.register_alias("moreblocks:stair_glass_inverted", "stairsplus:stair_glass_inverted")
+minetest.register_alias("moreblocks:stair_mossycobble_inverted", "stairsplus:stair_mossycobble_inverted")
+minetest.register_alias("moreblocks:stair_steelblock_inverted", "stairsplus:stair_steelblock_inverted")
+
+minetest.register_alias("moreblocks:slab_stone_inverted", "stairsplus:slab_stone_inverted")
+minetest.register_alias("moreblocks:slab_cobble_inverted", "stairsplus:slab_cobble_inverted")
+minetest.register_alias("moreblocks:slab_wood_inverted", "stairsplus:slab_wood_inverted")
+minetest.register_alias("moreblocks:slab_sandstone_inverted", "stairsplus:slab_sandstone_inverted")
+minetest.register_alias("moreblocks:slab_brick_inverted", "stairsplus:slab_brick_inverted")
+minetest.register_alias("moreblocks:slab_desert_stone_inverted", "stairsplus:slab_desert_stone_inverted")
+minetest.register_alias("moreblocks:slab_glass_inverted", "stairsplus:slab_glass_inverted")
+minetest.register_alias("moreblocks:slab_mossycobble_inverted", "stairsplus:slab_mossycobble_inverted")
+minetest.register_alias("moreblocks:slab_steelblock_inverted", "stairsplus:slab_steelblock_inverted")
+		
