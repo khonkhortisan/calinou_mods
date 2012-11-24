@@ -23,7 +23,7 @@ moreores_gold_chunk_size = 13
 moreores_mithril_chunk_size = 7
 
 -- Amount of ore per chunk (higher = bigger ore deposits)
-moreores_copper_ore_per_chunk = 8
+moreores_copper_ore_per_chunk = 12
 moreores_tin_ore_per_chunk = 2
 moreores_silver_ore_per_chunk = 5
 moreores_gold_ore_per_chunk = 5
