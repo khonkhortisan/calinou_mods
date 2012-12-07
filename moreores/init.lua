@@ -343,7 +343,7 @@ minetest.register_node("moreores:copper_rail", {
 		type = "fixed",
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
-	groups = {bendy=2,snappy=1,dig_immediate=2}
+	groups = {bendy=2,snappy=1,dig_immediate=2,rail=1}
 })
 
 -- Ore generation
