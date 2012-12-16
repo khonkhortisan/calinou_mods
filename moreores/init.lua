@@ -338,6 +338,7 @@ minetest.register_node("moreores:copper_rail", {
 	wield_image = "moreores_copper_rail.png",
 	paramtype = "light",
 	is_ground_content = true,
+	sunlight_propagates = true,
 	walkable = false,
 	selection_box = {
 		type = "fixed",
