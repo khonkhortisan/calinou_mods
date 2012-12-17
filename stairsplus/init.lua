@@ -35,6 +35,25 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 
 		minetest.register_node(":stairs:stair_" .. subname, {
@@ -1412,3 +1431,21 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "glass", "d
 		"Glass Panel",
 		"Glass Microblock",
 		"glass")
+		
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "tree", "default:tree",
+		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2, not_in_creative_inventory=1},
+		{"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
+		"Tree Stairs",
+		"Tree Slab",
+		"Tree Panel",
+		"Tree Microblock",
+		"tree")
+		
+stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "jungletree", "default:jungletree",
+		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2, not_in_creative_inventory=1},
+		{"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
+		"Jungle Tree Stairs",
+		"Jungle Tree Slab",
+		"Jungle Tree Panel",
+		"Jungle Tree Microblock",
+		"jungletree")
