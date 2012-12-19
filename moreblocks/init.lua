@@ -873,7 +873,7 @@ minetest.register_node("moreblocks:horizontaltree", {
 })
 
 minetest.register_node("moreblocks:horizontaljungletree", {
-	description = "Horizontal Jungletree",
+	description = "Horizontal Jungle Tree",
 	tiles = {"default_jungletree.png", "default_jungletree.png", "moreblocks_horizontaljungletree.png",
 		"moreblocks_horizontaljungletree.png", "default_jungletree_top.png", "default_jungletree_top.png"},
 	paramtype2 = "facedir",

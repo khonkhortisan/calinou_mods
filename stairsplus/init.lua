@@ -133,6 +133,25 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_half_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_half_inverted", {
@@ -185,6 +204,25 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_right_half_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 
 		minetest.register_node(modname .. ":stair_" .. subname .. "_right_half_inverted", {
@@ -265,6 +303,25 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_wall_half_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_wall_half_inverted", {
@@ -322,6 +379,25 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_inner_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_outer", {
@@ -349,6 +425,25 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_outer_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_inner_inverted", {
@@ -469,6 +564,14 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 		output = modname .. ":stair_" .. subname .. "_inner 1",
 		recipe = {
 			{modname .. ":micro_" .. subname .. "_bottom", modname .. ":stair_" .. subname},
+		},
+	})
+	
+	minetest.register_craft({
+		output = modname .. ":stair_" .. subname .. "_inner 1",
+		recipe = {
+			{modname .. ":stair_" .. subname .. "_wall_half"},
+			{modname .. ":slab_" .. subname},
 		},
 	})
 	
@@ -1297,6 +1400,25 @@ function stairsplus.register_micro(modname, subname, recipeitem, groups, images,
 			fixed = {-0.5, -0.5, 0, 0, 0, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":micro_" .. subname.. "_top")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 	minetest.register_node(modname .. ":micro_" .. subname .. "_top", {
