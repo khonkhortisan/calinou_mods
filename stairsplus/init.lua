@@ -916,6 +916,48 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 		},
 		sounds = default.node_sound_stone_defaults(),
 	})
+	
+	minetest.register_node(modname .. ":slab_" .. subname .. "_quarter_wall", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = modname .. ":slab_" .. drop .. "_wall",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0.25, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0.25, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+	minetest.register_node(modname .. ":slab_" .. subname .. "_three_quarter_wall", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = modname .. ":slab_" .. drop .. "_wall",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.25, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.25, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
 
 	minetest.register_node(modname .. ":slab_" .. subname .. "_quarter", {
 		description = description,
@@ -1184,7 +1226,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 	
 	minetest.register_craft({
-		output = recipeitem .. " 1",
+		output = recipeitem,
 		recipe = {
 			{modname .. ":slab_" .. subname},
 			{modname .. ":slab_" .. subname},
@@ -1192,7 +1234,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 
 	minetest.register_craft({
-		output = recipeitem .. " 1",
+		output = recipeitem,
 		recipe = {
 			{modname .. ":slab_" .. subname .. "_inverted"},
 			{modname .. ":slab_" .. subname .. "_inverted"},
@@ -1200,7 +1242,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 	
 	minetest.register_craft({
-		output = recipeitem .. " 1",
+		output = recipeitem,
 		recipe = {
 			{modname .. ":slab_" .. subname .. "_wall", modname .. ":slab_" .. subname .. "_wall"},
 		},
@@ -1265,6 +1307,23 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 			{modname .. ":slab_" .. subname .. "_three_quarter"},
 		},
 	})
+	
+	minetest.register_craft({
+		output = modname .. ":slab_" .. subname .. "_quarter_wall 6",
+		recipe = {
+			{modname .. ":slab_" .. subname .. "_wall"},
+			{modname .. ":slab_" .. subname .. "_wall"},
+			{modname .. ":slab_" .. subname .. "_wall"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = modname .. ":slab_" .. subname .. "_three_quarter_wall 6",
+		recipe = {
+			{modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall"},
+		},
+	})
+	
 end
 
 -- Node will be called <modname>panel_<subname>
