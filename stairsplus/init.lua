@@ -1318,7 +1318,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 	
 	minetest.register_craft({
-		output = modname .. ":slab_" .. subname .. "_three_quarter_wall 6",
+		output = modname .. ":slab_" .. subname .. "_three_quarter_wall 1",
 		recipe = {
 			{modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall"},
 		},

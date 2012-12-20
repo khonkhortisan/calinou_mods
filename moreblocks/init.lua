@@ -977,6 +977,25 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 
 		minetest.register_node(":stairs:stair_" .. subname, {
@@ -1056,6 +1075,25 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_half_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_half_inverted", {
@@ -1108,6 +1146,25 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_right_half_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 
 		minetest.register_node(modname .. ":stair_" .. subname .. "_right_half_inverted", {
@@ -1188,6 +1245,25 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_wall_half_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_wall_half_inverted", {
@@ -1245,6 +1321,25 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_inner_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_outer", {
@@ -1272,6 +1367,25 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 			},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":stair_" .. subname.. "_outer_inverted")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 		minetest.register_node(modname .. ":stair_" .. subname .. "_inner_inverted", {
@@ -1392,6 +1506,14 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 		output = modname .. ":stair_" .. subname .. "_inner 1",
 		recipe = {
 			{modname .. ":micro_" .. subname .. "_bottom", modname .. ":stair_" .. subname},
+		},
+	})
+	
+	minetest.register_craft({
+		output = modname .. ":stair_" .. subname .. "_inner 1",
+		recipe = {
+			{modname .. ":stair_" .. subname .. "_wall_half"},
+			{modname .. ":slab_" .. subname},
 		},
 	})
 	
@@ -1539,7 +1661,7 @@ function moreblocks.register_stair(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Node will be called <modname>:slab_<subname>
+-- Node will be called <modname>slab_<subname>
 
 function moreblocks.register_slab(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":slab_" .. subname, {
@@ -1733,6 +1855,48 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, 0, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+	minetest.register_node(modname .. ":slab_" .. subname .. "_quarter_wall", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = modname .. ":slab_" .. drop .. "_wall",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0.25, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, 0.25, 0.5, 0.5, 0.5},
+		},
+		sounds = default.node_sound_stone_defaults(),
+	})
+	
+	minetest.register_node(modname .. ":slab_" .. subname .. "_three_quarter_wall", {
+		description = description,
+		drawtype = "nodebox",
+		tiles = images,
+		drop = modname .. ":slab_" .. drop .. "_wall",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = true,
+		groups = groups,
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.25, 0.5, 0.5, 0.5},
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.25, 0.5, 0.5, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
 	})
@@ -2004,7 +2168,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 	
 	minetest.register_craft({
-		output = recipeitem .. " 1",
+		output = recipeitem,
 		recipe = {
 			{modname .. ":slab_" .. subname},
 			{modname .. ":slab_" .. subname},
@@ -2012,7 +2176,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 
 	minetest.register_craft({
-		output = recipeitem .. " 1",
+		output = recipeitem,
 		recipe = {
 			{modname .. ":slab_" .. subname .. "_inverted"},
 			{modname .. ":slab_" .. subname .. "_inverted"},
@@ -2020,7 +2184,7 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 	})
 	
 	minetest.register_craft({
-		output = recipeitem .. " 1",
+		output = recipeitem,
 		recipe = {
 			{modname .. ":slab_" .. subname .. "_wall", modname .. ":slab_" .. subname .. "_wall"},
 		},
@@ -2085,9 +2249,26 @@ function moreblocks.register_slab(modname, subname, recipeitem, groups, images, 
 			{modname .. ":slab_" .. subname .. "_three_quarter"},
 		},
 	})
+	
+	minetest.register_craft({
+		output = modname .. ":slab_" .. subname .. "_quarter_wall 6",
+		recipe = {
+			{modname .. ":slab_" .. subname .. "_wall"},
+			{modname .. ":slab_" .. subname .. "_wall"},
+			{modname .. ":slab_" .. subname .. "_wall"},
+		},
+	})
+	
+	minetest.register_craft({
+		output = modname .. ":slab_" .. subname .. "_three_quarter_wall 1",
+		recipe = {
+			{modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall"},
+		},
+	})
+	
 end
 
--- Node will be called <modname>:panel_<subname>
+-- Node will be called <modname>panel_<subname>
 
 function moreblocks.register_panel(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":panel_" .. subname .. "_bottom", {
@@ -2198,7 +2379,7 @@ function moreblocks.register_panel(modname, subname, recipeitem, groups, images,
 	})
 end
 
--- Node will be called <modname>:micro_<subname>
+-- Node will be called <modname>micro_<subname>
 
 function moreblocks.register_micro(modname, subname, recipeitem, groups, images, description, drop)
 	minetest.register_node(modname .. ":micro_" .. subname .. "_bottom", {
@@ -2220,6 +2401,25 @@ function moreblocks.register_micro(modname, subname, recipeitem, groups, images,
 			fixed = {-0.5, -0.5, 0, 0, 0, 0.5},
 		},
 		sounds = default.node_sound_stone_defaults(),
+		on_place = function(itemstack, placer, pointed_thing)
+	if pointed_thing.type ~= "node" then
+		return itemstack
+	end
+	
+	local p0 = pointed_thing.under
+	local p1 = pointed_thing.above
+	if p0.y-1 == p1.y then
+		local fakestack = ItemStack(modname .. ":micro_" .. subname.. "_top")
+		local ret = minetest.item_place(fakestack, placer, pointed_thing)
+		if ret:is_empty() then
+			itemstack:take_item()
+			return itemstack
+		end
+	end
+	
+	-- Otherwise place regularly
+	return minetest.item_place(itemstack, placer, pointed_thing)
+	end,
 	})
 	
 	minetest.register_node(modname .. ":micro_" .. subname .. "_top", {
@@ -2302,7 +2502,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stonesquar
 		"stonesquare")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "splitstonesquare", "moreblocks:splitstonesquare",
-		{cracky=3},
+		{cracky=3, not_in_creative_inventory=1},
 		{"moreblocks_splitstonesquare_top.png", "moreblocks_splitstonesquare.png"},
 		"Split Stonesquare Stairs",
 		"Split Stonesquare Slab",
@@ -2311,7 +2511,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "splitstone
 		"splitstonesquare")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "junglewood", "moreblocks:junglewood",
-		{snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3, not_in_creative_inventory=1},
+		{snappy=1, choppy=2, oddly_breakable_by_hand=2,flammable=3, not_in_creative_inventory=1},
 		{"moreblocks_junglewood.png"},
 		"Jungle Wood Stairs",
 		"Jungle Wood Slab",
