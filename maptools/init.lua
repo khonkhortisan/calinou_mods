@@ -151,7 +151,7 @@ minetest.register_node(":default:cloud", {
 
 minetest.register_node("maptools:stone", {
 	description = "Unbreakable Stone",
-	tile_images = {"default_stone.png"},
+	tiles = {"default_stone.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -159,7 +159,7 @@ minetest.register_node("maptools:stone", {
 
 minetest.register_node("maptools:tree", {
 	description = "Unbreakable Tree",
-	tile_images = {"default_tree.png"},
+	tiles = {"default_tree.png"},
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_wood_defaults(),
 	is_ground_content = true,
@@ -167,7 +167,7 @@ minetest.register_node("maptools:tree", {
 
 minetest.register_node("maptools:dirt", {
 	description = "Unbreakable Dirt",
-	tile_images = {"default_dirt.png"},
+	tiles = {"default_dirt.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_dirt_defaults(),
@@ -175,7 +175,7 @@ minetest.register_node("maptools:dirt", {
 
 minetest.register_node("maptools:wood", {
 	description = "Unbreakable Wood",
-	tile_images = {"default_wood.png"},
+	tiles = {"default_wood.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_wood_defaults(),
@@ -184,7 +184,7 @@ minetest.register_node("maptools:wood", {
 minetest.register_node("maptools:glass", {
 	description = "Unbreakable Glass",
 	drawtype = "glasslike",
-	tile_images = {"default_glass.png"},
+	tiles = {"default_glass.png"},
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = true,
@@ -195,7 +195,7 @@ minetest.register_node("maptools:glass", {
 minetest.register_node("maptools:leaves", {
 	description = "Unbreakable Leaves",
 	drawtype = "allfaces_optional",
-	tile_images = {"default_leaves.png"},
+	tiles = {"default_leaves.png"},
 	paramtype = "light",
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
@@ -204,7 +204,7 @@ minetest.register_node("maptools:leaves", {
 
 minetest.register_node("maptools:sand", {
 	description = "Unbreakable Sand",
-	tile_images = {"default_sand.png"},
+	tiles = {"default_sand.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_sand_defaults(),
@@ -212,7 +212,7 @@ minetest.register_node("maptools:sand", {
 
 minetest.register_node("maptools:gravel", {
 	description = "Unbreakable Gravel",
-	tile_images = {"default_gravel.png"},
+	tiles = {"default_gravel.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_dirt_defaults({
@@ -222,7 +222,7 @@ minetest.register_node("maptools:gravel", {
 
 minetest.register_node("maptools:desert_sand", {
 	description = "Unbreakable Desert Sand",
-	tile_images = {"default_desert_sand.png"},
+	tiles = {"default_desert_sand.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_sand_defaults(),
@@ -230,7 +230,7 @@ minetest.register_node("maptools:desert_sand", {
 
 minetest.register_node("maptools:sandstone", {
 	description = "Unbreakable Sandstone",
-	tile_images = {"default_sandstone.png"},
+	tiles = {"default_sandstone.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -238,7 +238,7 @@ minetest.register_node("maptools:sandstone", {
 
 minetest.register_node("maptools:desert_stone", {
 	description = "Unbreakable Desert Stone",
-	tile_images = {"default_desert_stone.png"},
+	tiles = {"default_desert_stone.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -246,7 +246,7 @@ minetest.register_node("maptools:desert_stone", {
 
 minetest.register_node("maptools:grass", {
 	description = "Unbreakable Dirt with Grass",
-	tile_images = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
+	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_dirt_defaults({
@@ -256,7 +256,7 @@ minetest.register_node("maptools:grass", {
 
 minetest.register_node("maptools:fullgrass", {
 	description = "Unbreakable Full Grass",
-	tile_images = {"default_grass.png"},
+	tiles = {"default_grass.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_dirt_defaults({
@@ -266,7 +266,7 @@ minetest.register_node("maptools:fullgrass", {
 
 minetest.register_node("maptools:cobble", {
 	description = "Unbreakable Cobble",
-	tile_images = {"default_cobble.png"},
+	tiles = {"default_cobble.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -274,7 +274,7 @@ minetest.register_node("maptools:cobble", {
 
 minetest.register_node("maptools:mossycobble", {
 	description = "Unbreakable Mossy Cobble",
-	tile_images = {"default_mossycobble.png"},
+	tiles = {"default_mossycobble.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -282,7 +282,7 @@ minetest.register_node("maptools:mossycobble", {
 
 minetest.register_node("maptools:brick", {
 	description = "Unbreakable Brick",
-	tile_images = {"default_brick.png"},
+	tiles = {"default_brick.png"},
 	is_ground_content = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -440,7 +440,7 @@ minetest.register_node("maptools:kill", {
 
 minetest.register_node("maptools:smoke", {
 	description = "Smoke Block",
-	tile_images = {"maptools_smoke.png"},
+	tiles = {"maptools_smoke.png"},
 	drawtype = "allfaces_optional",
 	walkable = false,
 	is_ground_content = true,
@@ -453,7 +453,7 @@ minetest.register_node("maptools:smoke", {
 minetest.register_node("maptools:ladder", {
 	description = "Fake Ladder",
 	drawtype = "signlike",
-	tile_images = {"default_ladder.png"},
+	tiles = {"default_ladder.png"},
 	inventory_image = "default_ladder.png",
 	wield_image = "default_ladder.png",
 	paramtype = "light",
@@ -497,7 +497,7 @@ minetest.register_node("maptools:superapple", {
 	description = "Super Apple",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
-	tile_images = {"maptools_superapple.png"},
+	tiles = {"maptools_superapple.png"},
 	inventory_image = "maptools_superapple.png",
 	paramtype = "light",
 	sunlight_propagates = true,
