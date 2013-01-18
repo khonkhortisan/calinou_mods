@@ -255,14 +255,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:sandstone 1",
-	recipe = {
-		{"default:desert_sand", "default:desert_sand"},
-		{"default:desert_sand", "default:desert_sand"},
-	}
-})
-
-minetest.register_craft({
 	output = "default:dirt_with_grass 1",
 	recipe = {
 		{"default:junglegrass"},
@@ -597,13 +589,6 @@ minetest.register_craft({
 		{"junglegrass"},
 		{"leaves"},
 		{"junglegrass"},
-	}
-})
-
-minetest.register_craft({
-	output = "steel_ingot 9",
-	recipe = {
-		{"default:steelblock"},
 	}
 })
 
