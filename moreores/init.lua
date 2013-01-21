@@ -16,17 +16,17 @@ Licensed under GPLv3 or later for code and zlib/libpng for textures, see: http:/
 ------------------------------------------------------------------------------
 
 -- Chunk sizes for ore generation (bigger = ore deposits are more scattered around)
-moreores_copper_chunk_size = 12
-moreores_tin_chunk_size = 9
+moreores_copper_chunk_size = 8
+moreores_tin_chunk_size = 7
 moreores_silver_chunk_size = 11
-moreores_gold_chunk_size = 13
-moreores_mithril_chunk_size = 7
+moreores_gold_chunk_size = 14
+moreores_mithril_chunk_size = 11
 
 -- Amount of ore per chunk (higher = bigger ore deposits)
-moreores_copper_ore_per_chunk = 12
-moreores_tin_ore_per_chunk = 2
-moreores_silver_ore_per_chunk = 5
-moreores_gold_ore_per_chunk = 5
+moreores_copper_ore_per_chunk = 8
+moreores_tin_ore_per_chunk = 3
+moreores_silver_ore_per_chunk = 4
+moreores_gold_ore_per_chunk = 4
 moreores_mithril_ore_per_chunk = 1
 
 -- Minimal depths of ore generation (Y coordinate)
