@@ -1,3 +1,5 @@
+print("[moreblocks] loaded.")
+
 --[[
 ****
 More Blocks

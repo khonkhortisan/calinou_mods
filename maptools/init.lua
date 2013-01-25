@@ -1,3 +1,5 @@
+print("[maptools] loaded.")
+
 --[[
 ****
 Map Tools
