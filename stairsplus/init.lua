@@ -108,7 +108,7 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 		},
 		sounds = default.node_sound_stone_defaults(),
 	})
-	
+
 		minetest.register_node(modname .. ":stair_" .. subname .. "_half", {
 		description = description,
 		drawtype = "nodebox",
@@ -703,19 +703,37 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 			{modname .. ":stair_" .. subname .. "_wall_half_inverted"},
 		},
 	})
-	
+
 	minetest.register_craft({
 		output = modname .. ":stair_" .. subname .. "_inverted 1",
 		recipe = {
 			{modname .. ":stair_" .. subname},
 		},
 	})
-	
+
 	minetest.register_craft({
 		output = modname .. ":stair_" .. subname .. " 1",
 		recipe = {
 			{modname .. ":stair_" .. subname .. "_inverted"},
 		},
+	})
+
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":stair_" .. subname "_stone",
+		recipe = modname .. ":stair_" .. subname "_cobble",
+	})
+
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":stair_" .. subname "_stone_wall",
+		recipe = modname .. ":stair_" .. subname "_cobble_wall",
+	})
+
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":stair_" .. subname "_stone_wall_half",
+		recipe = modname .. ":stair_" .. subname "_cobble_wall_half",
 	})
 end
 
@@ -1323,7 +1341,43 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 			{modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall", modname .. ":slab_" .. subname .. "_quarter_wall"},
 		},
 	})
+
+
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":slab_" .. subname "_stone",
+		recipe = modname .. ":slab_" .. subname "_cobble",
+	})
 	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":slab_" .. subname "_stone_quarter",
+		recipe = modname .. ":stair_" .. subname "_cobble_quarter",
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":slab_" .. subname "_stone_three_quarter",
+		recipe = modname .. ":slab_" .. subname "_cobble_three_quarter",
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":slab_" .. subname "_stone_wall",
+		recipe = modname .. ":slab_" .. subname "_cobble_wall",
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":slab_" .. subname "_stone_quarter_wall",
+		recipe = modname .. ":slab_" .. subname "_cobble_quarter_wall",
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":slab_" .. subname "_stone_three_quarter_wall",
+		recipe = modname .. ":slab_" .. subname "_cobble_three_quarter_wall",
+	})
 end
 
 -- Node will be called <modname>panel_<subname>
@@ -1435,6 +1489,24 @@ function stairsplus.register_panel(modname, subname, recipeitem, groups, images,
 			{modname .. ":panel_" .. subname .. "_vertical", modname .. ":panel_" .. subname .. "_vertical"},
 		},
 	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":panel_" .. subname "_stone_bottom",
+		recipe = modname .. ":panel_" .. subname "_cobble_bottom",
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":panel_" .. subname "_stone_top",
+		recipe = modname .. ":panel_" .. subname "_cobble_top",
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":panel_" .. subname "_stone_vertical",
+		recipe = modname .. ":panel_" .. subname "_cobble_vertical",
+	})
 end
 
 -- Node will be called <modname>micro_<subname>
@@ -1521,6 +1593,18 @@ function stairsplus.register_micro(modname, subname, recipeitem, groups, images,
 		recipe = {
 			{modname .. ":micro_" .. subname .. "_top"},
 		},
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":micro_" .. subname "_stone_bottom",
+		recipe = modname .. ":micro_" .. subname "_cobble_bottom",
+	})
+	
+	minetest.register_craft({
+		type = "cooking",
+		output = modname .. ":micro_" .. subname "_stone_top",
+		recipe = modname .. ":micro_" .. subname "_cobble_top",
 	})
 end
 
