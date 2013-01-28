@@ -722,20 +722,20 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":stair_" .. subname "_stone",
-		recipe = modname .. ":stair_" .. subname "_cobble",
+		output = modname .. ":stair_" .. subname .. "_stone",
+		recipe = modname .. ":stair_" .. subname .. "_cobble",
 	})
 
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":stair_" .. subname "_stone_wall",
-		recipe = modname .. ":stair_" .. subname "_cobble_wall",
+		output = modname .. ":stair_" .. subname .. "_stone_wall",
+		recipe = modname .. ":stair_" .. subname .. "_cobble_wall",
 	})
 
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":stair_" .. subname "_stone_wall_half",
-		recipe = modname .. ":stair_" .. subname "_cobble_wall_half",
+		output = modname .. ":stair_" .. subname .. "_stone_wall_half",
+		recipe = modname .. ":stair_" .. subname .. "_cobble_wall_half",
 	})
 end
 
@@ -1347,38 +1347,38 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":slab_" .. subname "_stone",
-		recipe = modname .. ":slab_" .. subname "_cobble",
+		output = modname .. ":slab_" .. subname .. "_stone",
+		recipe = modname .. ":slab_" .. subname .. "_cobble",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":slab_" .. subname "_stone_quarter",
-		recipe = modname .. ":stair_" .. subname "_cobble_quarter",
+		output = modname .. ":slab_" .. subname .. "_stone_quarter",
+		recipe = modname .. ":stair_" .. subname .. "_cobble_quarter",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":slab_" .. subname "_stone_three_quarter",
-		recipe = modname .. ":slab_" .. subname "_cobble_three_quarter",
+		output = modname .. ":slab_" .. subname .. "_stone_three_quarter",
+		recipe = modname .. ":slab_" .. subname .. "_cobble_three_quarter",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":slab_" .. subname "_stone_wall",
-		recipe = modname .. ":slab_" .. subname "_cobble_wall",
+		output = modname .. ":slab_" .. subname .. "_stone_wall",
+		recipe = modname .. ":slab_" .. subname .. "_cobble_wall",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":slab_" .. subname "_stone_quarter_wall",
-		recipe = modname .. ":slab_" .. subname "_cobble_quarter_wall",
+		output = modname .. ":slab_" .. subname .. "_stone_quarter_wall",
+		recipe = modname .. ":slab_" .. subname .. "_cobble_quarter_wall",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":slab_" .. subname "_stone_three_quarter_wall",
-		recipe = modname .. ":slab_" .. subname "_cobble_three_quarter_wall",
+		output = modname .. ":slab_" .. subname .. "_stone_three_quarter_wall",
+		recipe = modname .. ":slab_" .. subname .. "_cobble_three_quarter_wall",
 	})
 end
 
@@ -1494,20 +1494,20 @@ function stairsplus.register_panel(modname, subname, recipeitem, groups, images,
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":panel_" .. subname "_stone_bottom",
-		recipe = modname .. ":panel_" .. subname "_cobble_bottom",
+		output = modname .. ":panel_" .. subname .. "_stone_bottom",
+		recipe = modname .. ":panel_" .. subname .. "_cobble_bottom",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":panel_" .. subname "_stone_top",
-		recipe = modname .. ":panel_" .. subname "_cobble_top",
+		output = modname .. ":panel_" .. subname .. "_stone_top",
+		recipe = modname .. ":panel_" .. subname .. "_cobble_top",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":panel_" .. subname "_stone_vertical",
-		recipe = modname .. ":panel_" .. subname "_cobble_vertical",
+		output = modname .. ":panel_" .. subname .. "_stone_vertical",
+		recipe = modname .. ":panel_" .. subname .. "_cobble_vertical",
 	})
 end
 
@@ -1599,14 +1599,14 @@ function stairsplus.register_micro(modname, subname, recipeitem, groups, images,
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":micro_" .. subname "_stone_bottom",
-		recipe = modname .. ":micro_" .. subname "_cobble_bottom",
+		output = modname .. ":micro_" .. subname .. "_stone_bottom",
+		recipe = modname .. ":micro_" .. subname .. "_cobble_bottom",
 	})
 	
 	minetest.register_craft({
 		type = "cooking",
-		output = modname .. ":micro_" .. subname "_stone_top",
-		recipe = modname .. ":micro_" .. subname "_cobble_top",
+		output = modname .. ":micro_" .. subname .. "_stone_top",
+		recipe = modname .. ":micro_" .. subname .. "_cobble_top",
 	})
 end
 
