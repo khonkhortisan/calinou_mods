@@ -1,3 +1,5 @@
+print("[stairsplus] loaded.")
+
 --[[
 ****
 Stairs+
