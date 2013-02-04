@@ -529,3 +529,11 @@ minetest.register_tool("maptools:pick_admin", {
 		}
 	},
 })
+
+minetest.register_on_punchnode(function(pos, node, puncher)
+	if puncher:get_wielded_item():get_name() == "maptools:pick_admin"
+	and minetest.env: get_node(pos).name ~= "air" then
+		minetest.env:remove_node(pos)
+		puncher:get_inventory():add_item('main', node)
+	end
+end)
