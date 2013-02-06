@@ -2462,7 +2462,7 @@ function moreblocks.register_stair_and_slab_and_panel_and_micro(modname, subname
 end
 
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stonebrick", "moreblocks:stonebrick",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_stonebrick.png"},
 		"Stone Bricks Stairs",
 		"Stone Bricks Slab",
@@ -2471,7 +2471,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stonebrick
 		"stonebrick")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "ironstonebrick", "moreblocks:ironstonebrick",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_stonebrick.png"},
 		"Iron Stone Bricks Stairs",
 		"Iron Stone Bricks Slab",
@@ -2480,7 +2480,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "ironstoneb
 		"ironstonebrick")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stonesquare", "moreblocks:stonesquare",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_stonesquare.png"},
 		"Stonesquare Stairs",
 		"Stonesquare Slab",
@@ -2489,7 +2489,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stonesquar
 		"stonesquare")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "splitstonesquare", "moreblocks:splitstonesquare",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_splitstonesquare_top.png", "moreblocks_splitstonesquare.png"},
 		"Split Stonesquare Stairs",
 		"Split Stonesquare Slab",
@@ -2498,7 +2498,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "splitstone
 		"splitstonesquare")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "junglewood", "moreblocks:junglewood",
-		{snappy=1, choppy=2, oddly_breakable_by_hand=2,flammable=3, not_in_creative_inventory=1},
+		{snappy=1, choppy=2, oddly_breakable_by_hand=2,flammable=3},
 		{"moreblocks_junglewood.png"},
 		"Jungle Wood Stairs",
 		"Jungle Wood Slab",
@@ -2507,7 +2507,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "junglewood
 		"junglewood")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "circlestonebrick", "moreblocks:circlestonebrick",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_circlestonebrick.png"},
 		"Circle Stone Brick Stairs",
 		"Circle Stone Brick Slab",
@@ -2516,7 +2516,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "circleston
 		"circlestonebrick")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "plankstone", "moreblocks:plankstone",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_plankstone.png"},
 		"Plankstone Stairs",
 		"Plankstone Slab",
@@ -2525,7 +2525,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "plankstone
 		"plankstone")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "coalchecker", "moreblocks:coalchecker",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_coalchecker.png"},
 		"Coal Checker Stairs",
 		"Coal Checker Slab",
@@ -2534,7 +2534,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "coalchecke
 		"coalchecker")
 
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "ironchecker", "moreblocks:ironchecker",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_ironchecker.png"},
 		"Iron Checker Stairs",
 		"Iron Checker Slab",
@@ -2543,7 +2543,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "ironchecke
 		"ironchecker")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "cactuschecker", "moreblocks:cactuschecker",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_cactuschecker.png"},
 		"Cactus Checker Stairs",
 		"Cactus Checker Slab",
@@ -2552,7 +2552,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "cactuschec
 		"cactuschecker")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "coalstone", "moreblocks:coalstone",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_coalstone.png"},
 		"Coal Stone Stairs",
 		"Coal Stone Slab",
@@ -2561,7 +2561,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "coalstone"
 		"coalstone")
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "ironstone", "moreblocks:ironstone",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"moreblocks_ironstone.png"},
 		"Iron Stone Stairs",
 		"Iron Stone Slab",

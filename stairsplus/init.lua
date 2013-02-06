@@ -1619,7 +1619,7 @@ function stairsplus.register_stair_and_slab_and_panel_and_micro(modname, subname
 end
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "wood", "default:wood",
-		{snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3, not_in_creative_inventory=1},
+		{snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_wood.png"},
 		"Wooden Stairs",
 		"Wooden Slab",
@@ -1628,7 +1628,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "wood", "de
 		"wood")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "stone", "default:stone",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"default_stone.png"},
 		"Stone Stairs",
 		"Stone Slab",
@@ -1637,7 +1637,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "stone", "d
 		"cobble")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "cobble", "default:cobble",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"default_cobble.png"},
 		"Cobblestone Stairs",
 		"Cobblestone Slab",
@@ -1646,7 +1646,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "cobble", "
 		"cobble")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "mossycobble", "default:mossycobble",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"default_mossycobble.png"},
 		"Mossy Cobblestone Stairs",
 		"Mossy Cobblestone Slab",
@@ -1655,7 +1655,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "mossycobbl
 		"mossycobble")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "brick", "default:brick",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"default_brick.png"},
 		"Brick Stairs",
 		"Brick Slab",
@@ -1664,7 +1664,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "brick", "d
 		"brick")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "sandstone", "default:sandstone",
-		{crumbly=2,cracky=2, not_in_creative_inventory=1},
+		{crumbly=2,cracky=2},
 		{"default_sandstone.png"},
 		"Sandstone Stairs",
 		"Sandstone Slab",
@@ -1673,7 +1673,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "sandstone"
 		"sandstone")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "steelblock", "default:steelblock",
-		{snappy=1,bendy=2,cracky=1,melty=2,level=2, not_in_creative_inventory=1},
+		{snappy=1,bendy=2,cracky=1,melty=2,level=2},
 		{"default_steel_block.png"},
 		"Steel Block Stairs",
 		"Steel Block Slab",
@@ -1682,7 +1682,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "steelblock
 		"steelblock")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "desert_stone", "default:desert_stone",
-		{cracky=3, not_in_creative_inventory=1},
+		{cracky=3},
 		{"default_desert_stone.png"},
 		"Desert Stone Stairs",
 		"Desert Stone Slab",
@@ -1691,7 +1691,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "desert_sto
 		"desert_stone")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "glass", "default:glass",
-		{snappy=2,cracky=3,oddly_breakable_by_hand=3, not_in_creative_inventory=1},
+		{snappy=2,cracky=3,oddly_breakable_by_hand=3},
 		{"default_glass.png"},
 		"Glass Stairs",
 		"Glass Slab",
@@ -1700,7 +1700,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "glass", "d
 		"glass")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "tree", "default:tree",
-		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2, not_in_creative_inventory=1},
+		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 		{"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
 		"Tree Stairs",
 		"Tree Slab",
@@ -1709,7 +1709,7 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "tree", "de
 		"tree")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "jungletree", "default:jungletree",
-		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2, not_in_creative_inventory=1},
+		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 		{"default_jungletree_top.png", "default_jungletree_top.png", "default_jungletree.png"},
 		"Jungle Tree Stairs",
 		"Jungle Tree Slab",
