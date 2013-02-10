@@ -66,7 +66,7 @@ function stairsplus.register_stair(modname, subname, recipeitem, groups, images,
 		paramtype2 = "facedir",
 		sunlight_propagates = true,
 		is_ground_content = true,
-		groups = groups,
+		groups = {cracky=3, not_in_creative_inventory=1},
 		node_box = {
 			type = "fixed",
 			fixed = {
@@ -741,13 +741,14 @@ end
 
 -- Node will be called <modname>slab_<subname>
 
-function stairsplus.register_slab(modname, subname, recipeitem, groups, images, description, drop)
+function stairsplus.register_slab(modname, subname, recipeitem, groups, images, description, drop, paramtype2)
 	minetest.register_node(modname .. ":slab_" .. subname, {
 		description = description,
 		drawtype = "nodebox",
 		tiles = images,
 		drop = modname .. ":slab_" .. drop,
 		paramtype = "light",
+		paramtype2 = paramtype2,
 		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
@@ -845,6 +846,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 		tiles = images,
 		drop = modname .. ":slab_" .. drop .. "_inverted",
 		paramtype = "light",
+		paramtype2 = paramtype2,
 		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
@@ -985,6 +987,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 		tiles = images,
 		drop = modname .. ":slab_" .. drop .. "_quarter",
 		paramtype = "light",
+		paramtype2 = paramtype2,
 		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
@@ -1083,6 +1086,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 		tiles = images,
 		drop = modname .. ":slab_" .. drop .. "_quarter",
 		paramtype = "light",
+		paramtype2 = paramtype2,
 		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
@@ -1181,6 +1185,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 		tiles = images,
 		drop = modname .. ":slab_" .. drop .. "_three_quarter",
 		paramtype = "light",
+		paramtype2 = paramtype2,
 		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
@@ -1201,6 +1206,7 @@ function stairsplus.register_slab(modname, subname, recipeitem, groups, images, 
 		tiles = images,
 		drop = modname .. ":slab_" .. drop .. "_three_quarter",
 		paramtype = "light",
+		paramtype2 = paramtype2,
 		sunlight_propagates = true,
 		is_ground_content = true,
 		groups = groups,
@@ -1611,9 +1617,9 @@ function stairsplus.register_micro(modname, subname, recipeitem, groups, images,
 end
 
 -- Nodes will be called <modname>:{stair,slab,panel,micro}_<subname>
-function stairsplus.register_stair_and_slab_and_panel_and_micro(modname, subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop)
+function stairsplus.register_stair_and_slab_and_panel_and_micro(modname, subname, recipeitem, groups, images, desc_stair, desc_slab, desc_panel, desc_micro, drop, paramtype2)
 	stairsplus.register_stair(modname, subname, recipeitem, groups, images, desc_stair, drop)
-	stairsplus.register_slab(modname, subname, recipeitem, groups, images, desc_slab, drop)
+	stairsplus.register_slab(modname, subname, recipeitem, groups, images, desc_slab, drop, paramtype2)
 	stairsplus.register_panel(modname, subname, recipeitem, groups, images, desc_panel, drop)
 	stairsplus.register_micro(modname, subname, recipeitem, groups, images, desc_micro, drop)
 end
@@ -1625,7 +1631,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "wood", "de
 		"Wooden Slab",
 		"Wooden Panel",
 		"Wooden Microblock",
-		"wood")
+		"wood",
+		"facedir")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "stone", "default:stone",
 		{cracky=3},
@@ -1634,7 +1641,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "stone", "d
 		"Stone Slab",
 		"Stone Panel",
 		"Stone Microblock",
-		"cobble")
+		"cobble",
+		"none")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "cobble", "default:cobble",
 		{cracky=3},
@@ -1643,7 +1651,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "cobble", "
 		"Cobblestone Slab",
 		"Cobblestone Panel",
 		"Cobblestone Microblock",
-		"cobble")
+		"cobble",
+		"none")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "mossycobble", "default:mossycobble",
 		{cracky=3},
@@ -1652,7 +1661,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "mossycobbl
 		"Mossy Cobblestone Slab",
 		"Mossy Cobblestone Panel",
 		"Mossy Cobblestone Microblock",
-		"mossycobble")
+		"mossycobble",
+		"none")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "brick", "default:brick",
 		{cracky=3},
@@ -1661,7 +1671,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "brick", "d
 		"Brick Slab",
 		"Brick Panel",
 		"Brick Microblock",
-		"brick")
+		"brick",
+		"facedir")
 
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "sandstone", "default:sandstone",
 		{crumbly=2,cracky=2},
@@ -1670,7 +1681,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "sandstone"
 		"Sandstone Slab",
 		"Sandstone Panel",
 		"Sandstone Microblock",
-		"sandstone")
+		"sandstone",
+		"none")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "steelblock", "default:steelblock",
 		{snappy=1,bendy=2,cracky=1,melty=2,level=2},
@@ -1679,7 +1691,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "steelblock
 		"Steel Block Slab",
 		"Steel Block Panel",
 		"Steel Microblock",
-		"steelblock")
+		"steelblock",
+		"none")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "desert_stone", "default:desert_stone",
 		{cracky=3},
@@ -1688,7 +1701,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "desert_sto
 		"Desert Stone Slab",
 		"Desert Stone Panel",
 		"Desert Stone Microblock",
-		"desert_stone")
+		"desert_stone",
+		"none")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "glass", "default:glass",
 		{snappy=2,cracky=3,oddly_breakable_by_hand=3},
@@ -1697,7 +1711,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "glass", "d
 		"Glass Slab",
 		"Glass Panel",
 		"Glass Microblock",
-		"glass")
+		"glass",
+		"none")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "tree", "default:tree",
 		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
@@ -1706,7 +1721,8 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "tree", "de
 		"Tree Slab",
 		"Tree Panel",
 		"Tree Microblock",
-		"tree")
+		"tree",
+		"none")
 		
 stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "jungletree", "default:jungletree",
 		{tree=1,snappy=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
@@ -1715,4 +1731,5 @@ stairsplus.register_stair_and_slab_and_panel_and_micro("stairsplus", "jungletree
 		"Jungle Tree Slab",
 		"Jungle Tree Panel",
 		"Jungle Tree Microblock",
-		"jungletree")
+		"jungletree",
+		"none")
