@@ -31,14 +31,14 @@ moreores_silver_ore_per_chunk = 4
 moreores_gold_ore_per_chunk = 4
 moreores_mithril_ore_per_chunk = 1
 
--- Minimal depths of ore generation (Y coordinate)
+-- Minimal depths of ore generation (Y coordinate, 0 being sea level by default)
 moreores_copper_min_depth = -31000
 moreores_tin_min_depth = -31000
 moreores_silver_min_depth = -31000
 moreores_gold_min_depth = -31000
 moreores_mithril_min_depth = -31000
 
--- Maximal depths of ore generation (Y coordinate)
+-- Maximal depths of ore generation (Y coordinate, 0 being sea level by default)
 moreores_copper_max_depth = 64
 moreores_tin_max_depth = 8
 moreores_silver_max_depth = -2
@@ -252,11 +252,11 @@ local oredefs = {
 		punchint = 1.0
 	},
 	copper = {
-		makes = {ore=true, block=false, lump=true, ingot=true, chest=false},
+		makes = {ore=true, block=true, lump=true, ingot=true, chest=true},
 		tools = {}
 	},
 	tin = {
-		makes = {ore=true, block=false, lump=true, ingot=true, chest=false},
+		makes = {ore=true, block=true, lump=true, ingot=true, chest=false},
 		tools = {}
 	},
 	bronze = {
@@ -318,7 +318,7 @@ minetest.register_craft({
 	}
 })
 
--- Bronze has some special cases (because it"s made from copper + tin)
+-- Bronze has some special cases, because it is made from copper and tin
 
 minetest.register_craft( {
 	type = "shapeless",
