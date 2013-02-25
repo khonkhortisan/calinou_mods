@@ -2556,7 +2556,7 @@ moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "stonebrick
 		
 moreblocks.register_stair_and_slab_and_panel_and_micro("moreblocks", "ironstonebrick", "moreblocks:ironstonebrick",
 		{cracky=3},
-		{"moreblocks_stonebrick.png"},
+		{"moreblocks_ironstonebrick.png"},
 		"Iron Stone Bricks Stairs",
 		"Iron Stone Bricks Slab",
 		"Iron Stone Bricks Panel",
