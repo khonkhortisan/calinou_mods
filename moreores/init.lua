@@ -1,3 +1,5 @@
+dofile(minetest.get_modpath("moreores").."/_config.txt")
+
 print("[moreores] loaded.")
 
 --[[
@@ -8,48 +10,6 @@ with the help of MarkTraceur, GloopMaster and Kotolegokot
 Licensed under GPLv3 or later for code and zlib/libpng for textures, see: http://www.gnu.org/licenses/gpl-3.0.html
 ****
 --]]
-
-------------------------------------------------------------------------------
------------------------------- CONFIGURATION ---------------------------------
-------------------------------------------------------------------------------
-
-------------------------------------------------------------------------------
--------- Feel free to change any settings (just change the numbers). ---------
-------------------------------------------------------------------------------
-
--- Chunk sizes for ore generation (bigger = ore deposits are more scattered around)
-moreores_copper_chunk_size = 8
-moreores_tin_chunk_size = 7
-moreores_silver_chunk_size = 11
-moreores_gold_chunk_size = 14
-moreores_mithril_chunk_size = 11
-
--- Amount of ore per chunk (higher = bigger ore deposits)
-moreores_copper_ore_per_chunk = 8
-moreores_tin_ore_per_chunk = 3
-moreores_silver_ore_per_chunk = 4
-moreores_gold_ore_per_chunk = 4
-moreores_mithril_ore_per_chunk = 1
-
--- Minimal depths of ore generation (Y coordinate, 0 being sea level by default)
-moreores_copper_min_depth = -31000
-moreores_tin_min_depth = -31000
-moreores_silver_min_depth = -31000
-moreores_gold_min_depth = -31000
-moreores_mithril_min_depth = -31000
-
--- Maximal depths of ore generation (Y coordinate, 0 being sea level by default)
-moreores_copper_max_depth = 64
-moreores_tin_max_depth = 8
-moreores_silver_max_depth = -2
-moreores_gold_max_depth = -64
-moreores_mithril_max_depth = -512
-
-
-------------------------------------------------------------------------------
-------------------------- END OF CONFIGURATION -------------------------------
-------------------------------------------------------------------------------
-
 
 -- Utility functions
 
