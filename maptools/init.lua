@@ -368,65 +368,19 @@ minetest.register_node("maptools:climb", {
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 })
 
-minetest.register_node("maptools:damage_1", {
-	description = "Damaging Block: 1",
+for num=1,5,1 do
+minetest.register_node("maptools:damage_"..num, {
+	description = "Damaging Block: "..num,
 	drawtype = "airlike",
 	walkable = false,
 	pointable = false,
-	damage_per_second = 1,
+	damage_per_second = num,
 	is_ground_content = true,
 	paramtype = "light",
 	sunlight_propagates = true,
 	groups = {unbreakable=1, not_in_creative_inventory=1},
 })
-
-minetest.register_node("maptools:damage_2", {
-	description = "Damaging Block: 2",
-	drawtype = "airlike",
-	walkable = false,
-	pointable = false,
-	damage_per_second = 2,
-	is_ground_content = true,
-	paramtype = "light",
-	sunlight_propagates = true,
-	groups = {unbreakable=1, not_in_creative_inventory=1},
-})
-
-minetest.register_node("maptools:damage_3", {
-	description = "Damaging Block: 3",
-	drawtype = "airlike",
-	walkable = false,
-	pointable = false,
-	damage_per_second = 3,
-	is_ground_content = true,
-	paramtype = "light",
-	sunlight_propagates = true,
-	groups = {unbreakable=1, not_in_creative_inventory=1},
-})
-
-minetest.register_node("maptools:damage_4", {
-	description = "Damaging Block: 4",
-	drawtype = "airlike",
-	walkable = false,
-	pointable = false,
-	damage_per_second = 4,
-	is_ground_content = true,
-	paramtype = "light",
-	sunlight_propagates = true,
-	groups = {unbreakable=1, not_in_creative_inventory=1},
-})
-
-minetest.register_node("maptools:damage_5", {
-	description = "Damaging Block: 5",
-	drawtype = "airlike",
-	walkable = false,
-	pointable = false,
-	damage_per_second = 5,
-	is_ground_content = true,
-	paramtype = "light",
-	sunlight_propagates = true,
-	groups = {unbreakable=1, not_in_creative_inventory=1},
-})
+end
 
 minetest.register_node("maptools:kill", {
 	description = "Killing Block",
@@ -529,3 +483,11 @@ minetest.register_tool("maptools:pick_admin", {
 		}
 	},
 })
+
+minetest.register_on_punchnode(function(pos, node, puncher)
+	if puncher:get_wielded_item():get_name() == "maptools:pick_admin"
+	and minetest.env: get_node(pos).name ~= "air" then
+		minetest.env:remove_node(pos)
+		puncher:get_inventory():add_item('main', node)
+	end
+end)
