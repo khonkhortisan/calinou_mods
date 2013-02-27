@@ -38,7 +38,7 @@ minetest.register_craft({
 	output = "default:axe_wood",
 	recipe = {
 		{"default:wood", "default:wood"},
-		{"default:stick", "default:wood	"},
+		{"default:stick", "default:wood"},
 		{"default:stick", ""},
 	}
 })
