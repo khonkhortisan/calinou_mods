@@ -295,7 +295,7 @@ minetest.register_craft( {
 minetest.register_node("moreores:copper_rail", {
 	description = "Copper Rail",
 	drawtype = "raillike",
-	tiles = {"moreores_copper_rail.png", "moreores_copper_rail_curved.png", "moreores_copper_rail_t_junction.png", "moreores_copper_rail_crossing.png"},
+	tiles = {"moreores_copper_rail.png", "moreores_copper_rail_curved.png", "moreores_copper_rail_t_junction.png", "moreores_copper_rail_crossing.png", "moreores_copper_rail_diagonal.png", "moreores_copper_rail_diagonal_end.png"},
 	inventory_image = "moreores_copper_rail.png",
 	wield_image = "moreores_copper_rail.png",
 	paramtype = "light",
